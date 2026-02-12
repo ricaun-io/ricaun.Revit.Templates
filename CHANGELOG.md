@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [0.11.0] / 2026-02-12
 ### Updated
-- Update to support `ricaun.Nuke` version `1.11.0` using `net10.0`.
+- Update to support `ricaun.Nuke` version `1.11.1` using `net10.0`.
 - Update `Build.csproj` files to use `net10.0`.
 
 ## [0.10.3] / 2025-08-04
