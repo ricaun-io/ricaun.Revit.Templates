@@ -1,7 +1,7 @@
 param($installPath, $toolsPath, $package, $project)
 
 	$outputFolder = "ricaun.Revit.Templates"
-	$vsVersions = @("2022")
+	$vsVersions = @("2022", "18")
 	$location = Get-Location
 	
 	if (!$toolsPath)
