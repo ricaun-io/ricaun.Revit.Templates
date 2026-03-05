@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace $rootnamespace$.Views
 {
-    public partial class $safeitemname$ : Window
+    public partial class $safeitemname$
     {
         public $safeitemname$()
         {
