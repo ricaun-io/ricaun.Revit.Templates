@@ -11,7 +11,8 @@
   "tags": {
     "platform": ".NET",
     "language": "C#",
-    "type": "solution"
+    "type": "solution",
+    "editorTreatAs": "solution"
   },
   "guids": [
     "00000000-0000-0000-0000-000000000000",
