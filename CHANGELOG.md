@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.11.0] / 2026-02-12
+### Features
+- Support Revit 2027 with `net10.0`.
 ### Updated
 - Update to support `ricaun.Nuke` version `1.11.1` using `net10.0`.
 - Update `Build.csproj` files to use `net10.0`.
