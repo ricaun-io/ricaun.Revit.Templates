@@ -116,8 +116,6 @@
 
   <!-- AutoCADInternalVersion -->
   <PropertyGroup>
-    <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2019">23.0</AutoCADInternalVersion>
-    <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2020">23.1</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2021">24.0</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2022">24.1</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2023">24.2</AutoCADInternalVersion>

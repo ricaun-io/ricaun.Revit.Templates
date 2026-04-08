@@ -86,21 +86,9 @@
       "dataType": "bool",
       "defaultValue": "false"
     },
-    "AutoCAD2020": {
-      "type": "parameter",
-      "description": "Configuration Version AutoCAD 2020",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "AutoCAD2019": {
-      "type": "parameter",
-      "description": "Configuration Version AutoCAD 2019",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
     "NoAutoCADVersion": {
       "type": "computed",
-      "value": "(AutoCAD2026 == \"false\" & AutoCAD2025 == \"false\" & AutoCAD2024 == \"false\" & AutoCAD2023 == \"false\" & AutoCAD2022 == \"false\" & AutoCAD2021 == \"false\" & AutoCAD2020 == \"false\" & AutoCAD2019 == \"false\")"
+      "value": "(AutoCAD2026 == \"false\" & AutoCAD2025 == \"false\" & AutoCAD2024 == \"false\" & AutoCAD2023 == \"false\" & AutoCAD2022 == \"false\" & AutoCAD2021 == \"false\")"
     }
     //"Integer": {
     //  "type": "parameter",

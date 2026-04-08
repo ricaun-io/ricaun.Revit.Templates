@@ -2,10 +2,6 @@
 <ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="SolutionTemplates" AppVersion="0.0.0" ProductType="Application" >
   <CompanyDetails Name="CompanyReplace" />
 <!--#if (NoAutoCADVersion)
-  <Components Description="AutoCAD 2019-2020">
-    <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.9"/>
-    <ComponentEntry AppName="SolutionTemplates" ModuleName="./2019/SolutionTemplates.dll" />
-  </Components>
   <Components Description="AutoCAD 2021-2024">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.0" SeriesMax="R24.9"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2021/SolutionTemplates.dll" />
