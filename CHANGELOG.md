@@ -13,7 +13,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `ItemTemplates` and remove `: Window` in views.
 - Update `tools` to support Visual Studio `18` version.
 - Update `ricaun.Project.Revit.Addin` and remove `Revit 2020` and `Revit 2019` support.
-- Update `ricaun.Project.AutoCAD.Addin` and remove `AutoCAD 2020` and `AutoCAD 2019` support.
 
 ## [0.10.3] / 2025-08-04
 ### Updated

@@ -2,6 +2,10 @@
 <ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="ProjectTemplates" AppVersion="0.0.0" ProductType="Application" >
   <CompanyDetails Name="CompanyReplace" />
 <!--#if (NoAutoCADVersion)
+  <Components Description="AutoCAD 2019-2020">
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.9"/>
+    <ComponentEntry AppName="ProjectTemplates" ModuleName="./2019/ProjectTemplates.dll" />
+  </Components>
   <Components Description="AutoCAD 2021-2024">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.0" SeriesMax="R24.9"/>
     <ComponentEntry AppName="ProjectTemplates" ModuleName="./2021/ProjectTemplates.dll" />
@@ -45,6 +49,18 @@
   <Components Description="AutoCAD 2021">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.0" SeriesMax="R24.0"/>
     <ComponentEntry AppName="ProjectTemplates" ModuleName="./2021/ProjectTemplates.dll" />
+  </Components>
+#endif-->
+<!--#if (AutoCAD2020)
+  <Components Description="AutoCAD 2020">
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.1" SeriesMax="R23.1"/>
+    <ComponentEntry AppName="ProjectTemplates" ModuleName="./2020/ProjectTemplates.dll" />
+  </Components>
+#endif-->
+<!--#if (AutoCAD2019)
+  <Components Description="AutoCAD 2019">
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.0"/>
+    <ComponentEntry AppName="ProjectTemplates" ModuleName="./2019/ProjectTemplates.dll" />
   </Components>
 #endif-->
 </ApplicationPackage>
