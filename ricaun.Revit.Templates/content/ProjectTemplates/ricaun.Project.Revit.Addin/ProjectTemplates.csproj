@@ -10,7 +10,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 #endif-->
 <!--#if (NoRevitVersion)
-    <TargetFrameworks>net48;net8.0-windows;net10.0-windows</TargetFrameworks>
+    <TargetFrameworks>net47;net48;net8.0-windows;net10.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 #endif-->
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -58,6 +58,18 @@
   <!-- RevitVersion -->
   <!--#if (!NoRevitVersion)
   <Choose>
+    <When Condition="$(Configuration.Contains('2019'))">
+      <PropertyGroup>
+        <RevitVersion>2019</RevitVersion>
+        <TargetFramework>net47</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(Configuration.Contains('2020'))">
+      <PropertyGroup>
+        <RevitVersion>2020</RevitVersion>
+        <TargetFramework>net47</TargetFramework>
+      </PropertyGroup>
+    </When>
     <When Condition="$(Configuration.Contains('2021'))">
       <PropertyGroup>
         <RevitVersion>2021</RevitVersion>
@@ -110,6 +122,11 @@
 #endif-->
   <!--#if (NoRevitVersion)
   <Choose>
+    <When Condition="$(TargetFramework.StartsWith('net47'))">
+      <PropertyGroup>
+        <RevitVersion>2019</RevitVersion>
+      </PropertyGroup>
+    </When>
     <When Condition="$(TargetFramework.StartsWith('net48'))">
       <PropertyGroup>
         <RevitVersion>2021</RevitVersion>
