@@ -10,7 +10,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 #endif-->
 <!--#if (NoAutoCADVersion)
-    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 #endif-->
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -55,6 +55,18 @@
   <!-- AutoCADVersion -->
 <!--#if (!NoAutoCADVersion)
   <Choose>
+    <When Condition="$(Configuration.Contains('2019'))">
+      <PropertyGroup>
+        <AutoCADVersion>2019</AutoCADVersion>
+        <TargetFramework>net47</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(Configuration.Contains('2020'))">
+      <PropertyGroup>
+        <AutoCADVersion>2020</AutoCADVersion>
+        <TargetFramework>net47</TargetFramework>
+      </PropertyGroup>
+    </When>
     <When Condition="$(Configuration.Contains('2021'))">
       <PropertyGroup>
         <AutoCADVersion>2021</AutoCADVersion>
@@ -101,6 +113,11 @@
 #endif-->
 <!--#if (NoAutoCADVersion)
   <Choose>
+    <When Condition="$(TargetFramework.StartsWith('net47'))">
+      <PropertyGroup>
+        <AutoCADVersion>2019</AutoCADVersion>
+      </PropertyGroup>
+    </When>
     <When Condition="$(TargetFramework.StartsWith('net48'))">
       <PropertyGroup>
         <AutoCADVersion>2021</AutoCADVersion>
@@ -116,6 +133,8 @@
 
   <!-- AutoCADInternalVersion -->
   <PropertyGroup>
+    <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2019">23.0</AutoCADInternalVersion>
+    <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2020">23.1</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2021">24.0</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2022">24.1</AutoCADInternalVersion>
     <AutoCADInternalVersion Condition="$(AutoCADVersion) == 2023">24.2</AutoCADInternalVersion>
