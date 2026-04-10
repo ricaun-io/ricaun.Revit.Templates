@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Features
 - Support Revit 2027 with `net10.0`.
 ### Updated
-- Update to support `ricaun.Nuke` version `1.11.2` using `net10.0`.
+- Update to support `ricaun.Nuke` version `1.11.1` using `net10.0`.
 - Update `Build.csproj` files to use `net10.0`.
 - Update `ItemTemplates` and remove `: Window` in views.
 - Update `tools` to support Visual Studio `18` version.
