@@ -137,6 +137,11 @@
         <AutoCADVersion>2025</AutoCADVersion>
       </PropertyGroup>
     </When>
+    <When Condition="$(TargetFramework.StartsWith('net10'))">
+      <PropertyGroup>
+        <AutoCADVersion>2027</AutoCADVersion>
+      </PropertyGroup>
+    </When>
     <Otherwise>
       <PropertyGroup>
         <AutoCADVersion>2025</AutoCADVersion>
