@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `ItemTemplates` and remove `: Window` in views.
 - Update `tools` to support Visual Studio `18` version.
 - Remove `IncludePackageReferencesDuringMarkupCompilation` configuration in `csproj` files.
+- Update AutoCAD `csproj` to support version 2027.
 
 ## [0.10.3] / 2025-08-04
 ### Updated
