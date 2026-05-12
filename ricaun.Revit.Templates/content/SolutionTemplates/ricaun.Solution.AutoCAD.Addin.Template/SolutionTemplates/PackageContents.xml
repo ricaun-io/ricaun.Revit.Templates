@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationPackage SchemaVersion="1.0" AutodeskProduct="AutoCAD" Name="SolutionTemplates" AppVersion="0.0.0" ProductType="Application" >
   <CompanyDetails Name="CompanyReplace" />
-  <!--#if (NoAutoCADVersion)
+<!--#if (NoAutoCADVersion)
   <Components Description="AutoCAD 2019-2020">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.9"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2019/SolutionTemplates.dll" />
@@ -19,55 +19,55 @@
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2027/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2027)
+<!--#if (AutoCAD2027)
   <Components Description="AutoCAD 2027+">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R26.0" />
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2027/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2026)
+<!--#if (AutoCAD2026)
   <Components Description="AutoCAD 2026+">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R25.1" SeriesMax="R25.1" />
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2026/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2025)
+<!--#if (AutoCAD2025)
   <Components Description="AutoCAD 2025">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R25.0" SeriesMax="R25.0"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2025/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2024)
+<!--#if (AutoCAD2024)
   <Components Description="AutoCAD 2024">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.3" SeriesMax="R24.3"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2024/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2023)
+<!--#if (AutoCAD2023)
   <Components Description="AutoCAD 2023">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.2" SeriesMax="R24.2"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2023/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2022)
+<!--#if (AutoCAD2022)
   <Components Description="AutoCAD 2022">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.1" SeriesMax="R24.1"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2022/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2021)
+<!--#if (AutoCAD2021)
   <Components Description="AutoCAD 2021">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R24.0" SeriesMax="R24.0"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2021/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2020)
+<!--#if (AutoCAD2020)
   <Components Description="AutoCAD 2020">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.1" SeriesMax="R23.1"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2020/SolutionTemplates.dll" />
   </Components>
 #endif-->
-  <!--#if (AutoCAD2019)
+<!--#if (AutoCAD2019)
   <Components Description="AutoCAD 2019">
     <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R23.0" SeriesMax="R23.0"/>
     <ComponentEntry AppName="SolutionTemplates" ModuleName="./2019/SolutionTemplates.dll" />
