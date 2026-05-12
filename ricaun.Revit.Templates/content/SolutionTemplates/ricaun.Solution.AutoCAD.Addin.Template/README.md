@@ -16,6 +16,8 @@
 [![AutoCAD 2025](https://img.shields.io/badge/AutoCAD-2025+-blue.svg)](../..)
 #elseif (AutoCAD2026)
 [![AutoCAD 2026](https://img.shields.io/badge/AutoCAD-2026+-blue.svg)](../..)
+#elseif (AutoCAD2027)
+[![AutoCAD 2027](https://img.shields.io/badge/AutoCAD-2027+-blue.svg)](../..)
 #else
 [![AutoCAD 2019](https://img.shields.io/badge/AutoCAD-2019+-blue.svg)](../..)
 #endif-->
