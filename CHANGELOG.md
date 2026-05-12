@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [0.11.0] / 2026-02-12
+### Features
+- Support Revit 2027 with `net10.0`.
+- Support AutoCAD 2027 with `net10.0`.
+### Updated
+- Update to support `ricaun.Nuke` version `1.11.2` using `net10.0`.
+- Update `Build.csproj` files to use `net10.0`.
+- Update `ItemTemplates` and remove `: Window` in views.
+- Update `tools` to support Visual Studio `18` version.
+- Remove `IncludePackageReferencesDuringMarkupCompilation` configuration in `csproj` files.
+- Update AutoCAD `csproj` and `template` to support version 2027.
+
 ## [0.10.3] / 2025-08-04
 ### Updated
 - Update `Version` in the `Directory.Build.props` to `1.0.0-alpha`.
@@ -156,6 +168,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Solution `ricaun-revit-addin-23-17-sln`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[0.11.0]: ../../compare/0.10.3...0.11.0
 [0.10.3]: ../../compare/0.10.2...0.10.3
 [0.10.2]: ../../compare/0.10.1...0.10.2
 [0.10.1]: ../../compare/0.10.0...0.10.1

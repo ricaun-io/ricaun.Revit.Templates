@@ -10,7 +10,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 #endif-->
 <!--#if (NoRevitVersion)
-    <TargetFrameworks>net47;net48;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net47;net48;net8.0-windows;net10.0-windows</TargetFrameworks>
     <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
 #endif-->
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -53,7 +53,7 @@
   </PropertyGroup>
 
   <!-- RevitVersion -->
-<!--#if (!NoRevitVersion)
+  <!--#if (!NoRevitVersion)
   <Choose>
     <When Condition="$(Configuration.Contains('2019'))">
       <PropertyGroup>
@@ -103,15 +103,21 @@
         <TargetFramework>net8.0-windows</TargetFramework>
       </PropertyGroup>
     </When>
+    <When Condition="$(Configuration.Contains('2027'))">
+      <PropertyGroup>
+        <RevitVersion>2027</RevitVersion>
+        <TargetFramework>net10.0-windows</TargetFramework>
+      </PropertyGroup>
+    </When>
     <Otherwise>
       <PropertyGroup>
-        <RevitVersion>2019</RevitVersion>
-        <TargetFramework>net47</TargetFramework>
+        <RevitVersion>2025</RevitVersion>
+        <TargetFramework>net8.0-windows</TargetFramework>
       </PropertyGroup>
     </Otherwise>
   </Choose>
 #endif-->
-<!--#if (NoRevitVersion)
+  <!--#if (NoRevitVersion)
   <Choose>
     <When Condition="$(TargetFramework.StartsWith('net47'))">
       <PropertyGroup>
@@ -121,6 +127,16 @@
     <When Condition="$(TargetFramework.StartsWith('net48'))">
       <PropertyGroup>
         <RevitVersion>2021</RevitVersion>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(TargetFramework.StartsWith('net8.0'))">
+      <PropertyGroup>
+        <RevitVersion>2025</RevitVersion>
+      </PropertyGroup>
+    </When>
+    <When Condition="$(TargetFramework.StartsWith('net10.0'))">
+      <PropertyGroup>
+        <RevitVersion>2027</RevitVersion>
       </PropertyGroup>
     </When>
     <Otherwise>
@@ -167,7 +183,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- Release -->

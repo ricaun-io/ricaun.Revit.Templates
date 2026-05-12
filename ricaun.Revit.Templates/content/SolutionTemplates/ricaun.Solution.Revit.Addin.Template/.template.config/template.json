@@ -11,7 +11,8 @@
   "tags": {
     "platform": ".NET",
     "language": "C#",
-    "type": "solution"
+    "type": "solution",
+    "editorTreatAs": "solution"
   },
   "guids": [
     "00000000-0000-0000-0000-000000000000",
@@ -48,6 +49,12 @@
       "replaces": "DescriptionReplace",
       "datatype": "string",
       "defaultValue": "Revit Plugin Description for $(PackageId)."
+    },
+    "Revit2027": {
+      "type": "parameter",
+      "description": "Configuration Version Revit 2027",
+      "dataType": "bool",
+      "defaultValue": "false"
     },
     "Revit2026": {
       "type": "parameter",
@@ -99,7 +106,7 @@
     },
     "NoRevitVersion": {
       "type": "computed",
-      "value": "(Revit2026 == \"false\" & Revit2025 == \"false\" & Revit2024 == \"false\" & Revit2023 == \"false\" & Revit2022 == \"false\" & Revit2021 == \"false\" & Revit2020 == \"false\" & Revit2019 == \"false\")"
+      "value": "(Revit2027 == \"false\" & Revit2026 == \"false\" & Revit2025 == \"false\" & Revit2024 == \"false\" & Revit2023 == \"false\" & Revit2022 == \"false\" & Revit2021 == \"false\" & Revit2020 == \"false\" & Revit2019 == \"false\")"
     }
     //"Integer": {
     //  "type": "parameter",

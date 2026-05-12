@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace $rootnamespace$
 {
-    public partial class $safeitemname$ : Window
+    public partial class $safeitemname$
     {
         public $safeitemname$(Page page = null)
         {

@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace $rootnamespace$
 {
-    public partial class $safeitemname$ : Window
+    public partial class $safeitemname$
     {
         public $safeitemname$()
         {

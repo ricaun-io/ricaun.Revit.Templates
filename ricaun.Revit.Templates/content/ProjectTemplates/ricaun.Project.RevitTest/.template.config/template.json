@@ -22,6 +22,12 @@
     "99999999-9999-9999-9999-999999999999"
   ],
   "symbols": {
+    "Revit2027": {
+      "type": "parameter",
+      "description": "Configuration Version Revit 2027",
+      "dataType": "bool",
+      "defaultValue": "false"
+    },
     "Revit2026": {
       "type": "parameter",
       "description": "Configuration Version Revit 2026",
@@ -72,7 +78,7 @@
     },
     "NoRevitVersion": {
       "type": "computed",
-      "value": "(Revit2026 == \"false\" & Revit2025 == \"false\" & Revit2024 == \"false\" & Revit2023 == \"false\" & Revit2022 == \"false\" & Revit2021 == \"false\" & Revit2020 == \"false\" & Revit2019 == \"false\")"
+      "value": "(Revit2027 == \"false\" & Revit2026 == \"false\" & Revit2025 == \"false\" & Revit2024 == \"false\" & Revit2023 == \"false\" & Revit2022 == \"false\" & Revit2021 == \"false\" & Revit2020 == \"false\" & Revit2019 == \"false\")"
     }
   }
 }

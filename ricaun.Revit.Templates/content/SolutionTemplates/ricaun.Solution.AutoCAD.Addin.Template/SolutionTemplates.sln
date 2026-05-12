@@ -19,6 +19,10 @@ Project("{00000000-0000-0000-0000-000000000000}") = "Build", "Build\Build.csproj
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+<!--#if (AutoCAD2027)
+		2027|Any CPU = 2027|Any CPU
+		Debug 2027|Any CPU = Debug 2027|Any CPU
+#endif-->
 <!--#if (AutoCAD2026)
 		2026|Any CPU = 2026|Any CPU
 		Debug 2026|Any CPU = Debug 2026|Any CPU
