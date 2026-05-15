@@ -32,7 +32,12 @@ This project was generated using the [ricaun.Revit.Templates](https://github.com
 
 ## Installation
 
-* Download and install [SolutionTemplates.exe](../../releases/latest/download/SolutionTemplates.zip)
+* Install `bundle` using the installer [SolutionTemplates.exe](../../releases/latest/download/SolutionTemplates.zip)
+
+Or using [AppBundleTool](https://github.com/ricaun-io/ricaun.AppBundleTool) with the following command: 
+```shell
+AppBundleTool -a ../../releases/latest/download/SolutionTemplates.bundle.zip -i
+```
 
 <!--#if (License)
 ## License
