@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ricaun.Revit.Sdk</PackageId>
+    <Description>ricaun Sdk for RevitAddin development.</Description>
+    <PackageTags>autodesk;revit;revitapi;msbuild;sdk</PackageTags>
+    <Product>$(PackageId)</Product>
+  </PropertyGroup>
+
+  <!-- MSBuildSdk Template -->
+  <PropertyGroup>
+    <PackageType>MSBuildSdk</PackageType>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>ricaun</Company>
+    <Authors>Luiz Henrique Cassettari</Authors>
+    <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
+    <Copyright>Copyright © $(CopyrightYears) $(Company)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GitHubRepositoryOwner>ricaun-io</GitHubRepositoryOwner>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\ricaun.Revit.Templates\Resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Sdk\*" Pack="true" PackagePath="Sdk" />
+  </ItemGroup>
+
+  <Target Name="CopyPackFiles" AfterTargets="Pack">
+    <PropertyGroup>
+      <CopyDir>..\</CopyDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <CopyItem Include="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" />
+      <DeleteItem Include="$(CopyDir)\$(PackageId)*.nupkg" />
+    </ItemGroup>
+    <Delete Files="@(DeleteItem)"/>
+    <Copy SourceFiles="@(CopyItem)" DestinationFolder="$(CopyDir)" />
+  </Target>
+
+
+  <Target Name="UpdateSdkVersion" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <FileItems Include="..\**\*.csproj" />
+      <FileItems Update="@(FileItems)" >
+        <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
+        <UpdatedContent>$([System.Text.RegularExpressions.Regex]::Replace($([System.IO.File]::ReadAllText('%(FullPath)')), '.Sdk/[^"]*"&gt;', '.Sdk/$(Version)"&gt;'))</UpdatedContent>
+      </FileItems>
+      <FileItems Update="@(FileItems)" >
+        <Changed Condition="'%(ProjectFileContent)' != '%(UpdatedContent)'">true</Changed>
+      </FileItems>
+    </ItemGroup>
+
+    <!--.Sdk/0.12.0-alpha.3"> -->
+
+    <Message Text="UpdateSdkVersion [$(Version)]: %(FileItems.Identity)" Importance="High" Condition="'%(FileItems.Changed)' == 'true'" />
+
+    <WriteLinesToFile
+      Condition="'%(FileItems.Changed)' == 'true'"
+      File="%(FileItems.FullPath)"
+      Lines="%(FileItems.UpdatedContent)"
+      Overwrite="true" />
+
+  </Target>
+
+</Project>

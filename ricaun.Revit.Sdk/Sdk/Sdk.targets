@@ -1,0 +1,6 @@
+<Project>
+
+  <Import Project="ricaun.Revit.Sdk.*.targets"/>
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
+  
+</Project>

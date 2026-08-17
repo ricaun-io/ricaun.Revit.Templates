@@ -1,0 +1,19 @@
+<Project>
+
+  <!-- Copyright -->
+  <PropertyGroup>
+    <CopyrightYears Condition="'$(CopyrightYears)' == ''">$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
+    <Copyright Condition ="'$(Copyright)' == '' AND '$(Company)' != ''" >Copyright © $(Company) $(CopyrightYears)</Copyright>
+  </PropertyGroup>
+
+  <!-- Configuration only number -->
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(Configuration)', '^[0-9]+$'))">
+    <NoWarn>$(NoWarn);MSB3052</NoWarn>
+  </PropertyGroup>
+
+  <!-- Product -->
+  <PropertyGroup>
+    <Product Condition="'$(Product)' == ''">$(PackageId)</Product>
+  </PropertyGroup>
+
+</Project>
