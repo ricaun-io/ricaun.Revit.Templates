@@ -37,6 +37,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | Revit Plugin $(PackageId)
+--Revit2027 | Configuration Version Revit 2027 | false
 --Revit2026 | Configuration Version Revit 2026 | false
 --Revit2025 | Configuration Version Revit 2025 | false
 --Revit2024 | Configuration Version Revit 2024 | false
@@ -59,6 +60,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | AutoCAD Plugin $(PackageId)
+--AutoCAD2027 | Configuration Version AutoCAD 2027 | false
 --AutoCAD2026 | Configuration Version AutoCAD 2026 | false
 --AutoCAD2025 | Configuration Version AutoCAD 2025 | false
 --AutoCAD2024 | Configuration Version AutoCAD 2024 | false
