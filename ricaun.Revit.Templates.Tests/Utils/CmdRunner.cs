@@ -13,8 +13,10 @@ public class CmdRunner
         {
             StartInfo = new ProcessStartInfo
             {
+                Verb = "runas",
                 FileName = fileName,
                 Arguments = $"{string.Join(" ", arguments)}",
+                WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
@@ -41,7 +43,7 @@ public class CmdRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(60));
         await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;

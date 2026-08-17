@@ -30,8 +30,10 @@ public class DotNetRunner
         {
             StartInfo = new ProcessStartInfo
             {
+                Verb = "runas",
                 FileName = "dotnet",
                 Arguments = $"{command} {string.Join(" ", arguments)}",
+                WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
@@ -58,7 +60,7 @@ public class DotNetRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(15));
         await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;
