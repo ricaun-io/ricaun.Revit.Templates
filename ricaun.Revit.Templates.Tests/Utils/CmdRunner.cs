@@ -13,10 +13,8 @@ public class CmdRunner
         {
             StartInfo = new ProcessStartInfo
             {
-                Verb = "runas",
                 FileName = fileName,
                 Arguments = $"{string.Join(" ", arguments)}",
-                WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
