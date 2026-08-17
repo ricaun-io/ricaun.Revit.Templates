@@ -9,6 +9,7 @@ namespace ricaun.Revit.Templates.Tests
     public class SolutionTests
     {
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin")]
+        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin")]
         public async Task CreateAsync(string template, string projectName, params string[] arguments)
         {
             using (var creator = new DirectoryCreator(projectName))
