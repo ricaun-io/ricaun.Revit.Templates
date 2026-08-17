@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ricaun.Revit.Templates.Tests.Utils;
@@ -57,7 +58,8 @@ public class DotNetRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        await process.WaitForExitAsync();
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;
     }

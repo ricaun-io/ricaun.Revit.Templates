@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ricaun.Revit.Templates.Tests.Utils;
@@ -40,7 +41,8 @@ public class CmdRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        await process.WaitForExitAsync();
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+        await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;
     }
