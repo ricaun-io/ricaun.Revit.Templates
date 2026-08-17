@@ -2,7 +2,7 @@
 
 RevitAddin and AutoCADAddin Templates and ItemTemplates for C# Applications.
 
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/ricaun.Revit.Templates)
+[![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](https://github.com/ricaun-io/ricaun.Revit.Templates)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/ricaun.Revit.Templates/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.Revit.Templates/actions)
@@ -14,7 +14,7 @@ RevitAddin and AutoCADAddin Templates and ItemTemplates for C# Applications.
 
 This package is automatically installed when using the [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin.
 
-* Install [.Net SDK](https://dotnet.microsoft.com/download) or [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+* Install [.Net SDK](https://dotnet.microsoft.com/download) or [Visual Studio 2026](https://visualstudio.microsoft.com/vs/)
 * Run `dotnet new install ricaun.Revit.Templates` 
 
 ## SolutionTemplates
@@ -69,7 +69,7 @@ Options | Description | Default
 --AutoCAD2019 | Configuration Version AutoCAD 2019 | false
 
 ## ProjectTemplates
-The `ProjectTemplates` are installed automatically in `Visual Studio 2022` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
+The `ProjectTemplates` are installed automatically in `Visual Studio 2026` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
 
 Project Name | Short Name | Description
 --------|-------------|-------------
@@ -79,7 +79,7 @@ Project Autodesk AutoCAD Addin Template | ricaun-autocad-addin-project | Templat
 Project Nuke Automation Template | ricaun-nuke-project | Build Nuke Automation Template
 
 ### ItemTemplates
-The `ItemTemplates` are installed automatically in `Visual Studio 2022` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
+The `ItemTemplates` are installed automatically in `Visual Studio 2026` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
 
 #### Github
 Item | Description
@@ -96,7 +96,7 @@ Command | Basic Revit Command with IExternalCommand
 todo | ...
 
 ### Snippets
-The `Snippets` are installed automatically in `Visual Studio 2022` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
+The `Snippets` are installed automatically in `Visual Studio 2026` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
 
 Snippet | Description
 --------|-------------
@@ -126,10 +126,10 @@ Download the latest [ricaun.Revit.Templates.Install.zip](https://github.com/rica
 
 ### Manual Installation Tools
 
-Inside the `tools` folder are the `install.cmd` and `uninstall.cmd` files to install/uninstall the item and snippets `Visual Studio 2022` templates.
+Inside the `tools` folder are the `install.cmd` and `uninstall.cmd` files to install/uninstall the item and snippets `Visual Studio 2026` templates.
 
-* The `install.cmd` force to install the `ItemTemplates` and `Snippets` in the `Visual Studio 2022` user folder.
-* The `uninstall.cmd` force to uninstall the `ItemTemplates` and `Snippets` in the `Visual Studio 2022` user folder.
+* The `install.cmd` force to install the `ItemTemplates` and `Snippets` in the `Visual Studio 2026` user folder.
+* The `uninstall.cmd` force to uninstall the `ItemTemplates` and `Snippets` in the `Visual Studio 2026` user folder.
 
 ## Release
 

@@ -23,7 +23,7 @@
 #else
 [![Revit 2019](https://img.shields.io/badge/Revit-2019+-blue.svg)](../..)
 #endif-->
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 <!--#if (License)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)

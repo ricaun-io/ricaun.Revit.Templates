@@ -1,6 +1,6 @@
 ## Nuke Solution Configuration
 
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
 
