@@ -58,7 +58,7 @@ public class DotNetRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(150));
         await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;

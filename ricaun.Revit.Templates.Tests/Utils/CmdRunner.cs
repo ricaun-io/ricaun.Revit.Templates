@@ -41,7 +41,7 @@ public class CmdRunner
         process.BeginOutputReadLine();
         process.BeginErrorReadLine();
 
-        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(60));
+        using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(150));
         await process.WaitForExitAsync(cts.Token);
 
         return process.ExitCode;

@@ -35,7 +35,7 @@
         "Release",
         "Sign",
         "TemplateInstaller",
-        "TestLocal"
+        "Test"
       ]
     },
     "Verbosity": {
@@ -160,13 +160,13 @@
           "type": "string",
           "description": "Path to a solution file that is automatically loaded"
         },
-        "TestLocalBuildStopWhenFailed": {
+        "TestBuildStopWhenFailed": {
           "type": "boolean"
         },
-        "TestLocalProjectName": {
+        "TestProjectName": {
           "type": "string"
         },
-        "TestLocalResults": {
+        "TestResults": {
           "type": "boolean"
         },
         "UnlistNuGet": {
