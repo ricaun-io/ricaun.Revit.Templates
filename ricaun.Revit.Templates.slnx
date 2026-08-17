@@ -3,8 +3,12 @@
     <File Path="CHANGELOG.md" />
     <File Path="Directory.Build.props" />
     <File Path="LICENSE" />
+    <File Path="nuget.config" />
     <File Path="README.md" />
   </Folder>
   <Project Path="Build/Build.csproj" />
+  <Project Path="ricaun.Revit.Sdk/ricaun.Revit.Sdk.csproj" Id="56341d15-44d6-45bb-9b11-084234786156" />
+  <Project Path="ricaun.Revit.Sdk.Sample.Tests/ricaun.Revit.Sdk.Sample.Tests.csproj" Id="d66db815-7708-41c8-bfb0-7950c63ed376" />
+  <Project Path="ricaun.Revit.Sdk.Sample/ricaun.Revit.Sdk.Sample.csproj" Id="80ba23e8-3458-42db-892d-3234cc882fd1" />
   <Project Path="ricaun.Revit.Templates/ricaun.Revit.Templates.csproj" />
 </Solution>
