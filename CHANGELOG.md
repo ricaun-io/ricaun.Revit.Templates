@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Updates
 - Create `ricaun.Revit.Sdk.Sample` to use sdk `ricaun.Revit.Sdk`.
 - Create `ricaun.Revit.Sdk.Sample.Tests` to use sdk `ricaun.Revit.Sdk` and `ricaun.Revit.Sdk.Sample` reference.
+### Tests
+- Create `ricaun.Revit.Templates.Tests` to install and build solution/project from templates.
 
 ## [0.11.1] / 2026-05-15
 ### Updates
