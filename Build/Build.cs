@@ -7,8 +7,9 @@ using ricaun.Nuke;
 using ricaun.Nuke.Components;
 using ricaun.Nuke.Extensions;
 
-class Build : NukeBuild, IPublishPack, ITemplateInstaller, IPrePack
+class Build : NukeBuild, IPublishPack, ITemplateInstaller, ICompileBefore, IPrePack, ITest
 {
+    string IHazCompileBefore.Name => "ricaun.Revit.Sdk*";
     public static int Main() => Execute<Build>(x => x.From<IPublishPack>().Build);
 }
 
