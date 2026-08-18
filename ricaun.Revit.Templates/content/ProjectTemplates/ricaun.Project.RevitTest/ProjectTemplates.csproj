@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.6">
+<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.7">
 
   <PropertyGroup>
     <IsTestProject>true</IsTestProject>

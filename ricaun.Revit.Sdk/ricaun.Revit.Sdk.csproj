@@ -72,7 +72,7 @@
       </FileItems>
     </ItemGroup>
 
-    <!--.Sdk/0.12.0-alpha.6"> -->
+    <!--.Sdk/0.12.0-alpha.7"> -->
 
     <Message Text="UpdateSdkVersion [$(Version)]: %(FileItems.Identity)" Importance="High" Condition="'%(FileItems.Changed)' == 'true'" />
 

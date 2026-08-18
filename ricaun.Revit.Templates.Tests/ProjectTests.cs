@@ -24,7 +24,7 @@ namespace ricaun.Revit.Templates.Tests
 
                 var directory = creator.Directory;
                 var csprojFile = Directory.GetFiles(directory, "*.csproj").FirstOrDefault();
-                if (csprojFile is null) Assert.Fail("File '.csproj' not exist.");
+                Assert.IsNotNull(csprojFile, "File '.csproj' not exist.");
                 var buildResult = await DotNetRunner.RunBuildAsync(csprojFile);
                 Assert.Zero(buildResult);
             }
