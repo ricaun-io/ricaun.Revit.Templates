@@ -19,13 +19,5 @@ namespace ricaun.Revit.Templates.Tests
             await DotNetRunner.RunAsync("new", "uninstall", template);
             await DotNetRunner.RunAsync("new", "install", templateFile);
         }
-
-        [Explicit]
-        [TestCase("ricaun.Revit.Templates")]
-        public async Task InstallLastVersionAsync(string template)
-        {
-            await DotNetRunner.RunAsync("new", "uninstall", template);
-            await DotNetRunner.RunAsync("new", "install", template);
-        }
     }
 }
