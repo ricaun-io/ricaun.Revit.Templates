@@ -9,6 +9,7 @@ using ricaun.Nuke.Extensions;
 
 class Build : NukeBuild, IPublishPack, ITemplateInstaller, ICompileBefore, IPrePack, ITest
 {
+    bool IHazCompileBefore.SignCompile => false;
     string IHazCompileBefore.Name => "ricaun.Revit.Sdk*";
     public static int Main() => Execute<Build>(x => x.From<IPublishPack>().Build);
 }

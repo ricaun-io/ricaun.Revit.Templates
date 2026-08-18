@@ -1,0 +1,75 @@
+﻿<Solution>
+  <Configurations>
+    <!--#if (AutoCAD2019)
+    <BuildType Name="2019" />
+    #endif-->
+    <!--#if (AutoCAD2020)
+    <BuildType Name="2020" />
+    #endif-->
+    <!--#if (AutoCAD2021)
+    <BuildType Name="2021" />
+    #endif-->
+    <!--#if (AutoCAD2022)
+    <BuildType Name="2022" />
+    #endif-->
+    <!--#if (AutoCAD2023)
+    <BuildType Name="2023" />
+    #endif-->
+    <!--#if (AutoCAD2024)
+    <BuildType Name="2024" />
+    #endif-->
+    <!--#if (AutoCAD2025)
+    <BuildType Name="2025" />
+    #endif-->
+    <!--#if (AutoCAD2026)
+    <BuildType Name="2026" />
+    #endif-->
+    <!--#if (AutoCAD2027)
+    <BuildType Name="2027" />
+    #endif-->
+    <!--#if (AutoCAD2019)
+    <BuildType Name="Debug 2019" />
+    #endif-->
+    <!--#if (AutoCAD2020)
+    <BuildType Name="Debug 2020" />
+    #endif-->
+    <!--#if (AutoCAD2021)
+    <BuildType Name="Debug 2021" />
+    #endif-->
+    <!--#if (AutoCAD2022)
+    <BuildType Name="Debug 2022" />
+    #endif-->
+    <!--#if (AutoCAD2023)
+    <BuildType Name="Debug 2023" />
+    #endif-->
+    <!--#if (AutoCAD2024)
+    <BuildType Name="Debug 2024" />
+    #endif-->
+    <!--#if (AutoCAD2025)
+    <BuildType Name="Debug 2025" />
+    #endif-->
+    <!--#if (AutoCAD2026)
+    <BuildType Name="Debug 2026" />
+    #endif-->
+    <!--#if (AutoCAD2027)
+    <BuildType Name="Debug 2027" />
+    #endif-->
+    <!--#if (NoAutoCADVersion)
+		<BuildType Name="Debug" />
+    <BuildType Name="Release" />
+    #endif-->
+  </Configurations>
+  <Folder Name="/Solution/">
+    <File Path="CHANGELOG.md" />
+    <File Path="Directory.Build.props" />
+    <!--#if (License)
+    <File Path="LICENSE" />
+    #endif-->
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Build/Build.csproj">
+    <BuildType Project="Debug" />
+    <Build Project="false"/>
+  </Project>
+  <Project Path="SolutionTemplates/SolutionTemplates.csproj" />
+</Solution>
