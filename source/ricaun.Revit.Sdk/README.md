@@ -1,6 +1,6 @@
 # ricaun.Revit.Sdk
 
-Sdk for Revit API development.
+Sdk for Revit API development to support multiple Revit versions in a single project.
 
 [![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](https://github.com/ricaun-io/ricaun.Revit.Templates)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
@@ -33,6 +33,8 @@ The `Sdk` support the following `TargetFrameworks` for Revit versions:
 </Project>
 ```
 
+**The `RevitVersion` is set based in the `TargetFrameworks` number.**
+
 ## Configurations
 
 The `Sdk` support `Configurations` for Revit versions and the `TargetFramework` is automatically set by the `Sdk` depending on the `Configuration`:
@@ -43,6 +45,7 @@ The `Sdk` support `Configurations` for Revit versions and the `TargetFramework` 
   </PropertyGroup>
 </Project>
 ```
+**The `RevitVersion` is set based in the `Configuration` number.**
 
 ## RevitVersion
 
@@ -69,8 +72,9 @@ The defines `REVIT` and `REVIT<version>` are set depending on the Revit version.
 
 The `REVIT<version>_OR_GREATER` defines are set for the Revit version and all greater versions.
 
-| `RevitVersion` | Defines Constants |
-|----------------| ----------------- |
+| RevitVersion | Defines Constants |
+|--------------| ----------------- |
+| 2019 | REVIT2019_OR_GREATER, REVIT2019, REVIT |
 | 2021 | REVIT2019_OR_GREATER, REVIT2020_OR_GREATER, REVIT2021_OR_GREATER, REVIT2021, REVIT |
 | 2024 | REVIT2019_OR_GREATER, REVIT2020_OR_GREATER, REVIT2021_OR_GREATER, REVIT2022_OR_GREATER, REVIT2023_OR_GREATER, REVIT2024_OR_GREATER, REVIT2024, REVIT |
 | 2027 | REVIT2019_OR_GREATER, REVIT2020_OR_GREATER, REVIT2021_OR_GREATER, REVIT2022_OR_GREATER, REVIT2023_OR_GREATER, REVIT2024_OR_GREATER, REVIT2025_OR_GREATER, REVIT2026_OR_GREATER, REVIT2027_OR_GREATER, REVIT2027, REVIT |
@@ -79,14 +83,16 @@ By default the lowest version is set to 2019, the `RevitVersionMinimal` property
 
 ```xml
 <PropertyGroup>
-  <RevitVersionMinimal>2021</RevitVersionMinimal>
+  <RevitVersionMinimal>2019</RevitVersionMinimal>
 </PropertyGroup>
 ```
 
-### Table TargetFrameworks
+### TargetFrameworks defaults values
 
-| `RevitVersion` | TargetFramework |
-|----------------| --------------- |
+The `TargetFrameworks` defaults to the following values depending on the `RevitVersion` property:
+
+| RevitVersion | TargetFramework |
+|--------------| --------------- |
 | 2017-2019 | net46 |
 | 2019-2020 | net47 |
 | 2021-2024 | net48 |
@@ -94,3 +100,5 @@ By default the lowest version is set to 2019, the `RevitVersionMinimal` property
 | 2027-2028 | net10.0-windows |
 | 2029-2030 | net12.0-windows |
 | 2031-2032 | net14.0-windows |
+
+---
