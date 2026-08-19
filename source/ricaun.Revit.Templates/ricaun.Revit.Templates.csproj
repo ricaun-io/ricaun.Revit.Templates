@@ -43,7 +43,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
+    <!--<None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />-->
     <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Visible="false" />
     <None Include="Resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
   </ItemGroup>
@@ -55,24 +55,10 @@
     <None Update="*.cmd" CopyToOutputDirectory="PreserveNewest"  />
   </ItemGroup>
 
-  <Target Name="DeleteNupkg" BeforeTargets="BeforeBuild" Condition="$(TargetFramework) != ''">
-    <ItemGroup>
-      <DeleteItems Include="$(OutputPath)**\*.nupkg" />
-    </ItemGroup>
-    <Message Text="$(MSBuildProjectName) -&gt; [@(DeleteItems -> '%(Filename)%(Extension)', ', ')] ($(TargetFramework)) " Importance="high" />
-    <Delete Files="@(DeleteItems)" ContinueOnError="true" />
-  </Target>
-
-  <Target Name="CopyPackFiles" AfterTargets="Pack">
-    <PropertyGroup>
-      <CopyDir>..\..\</CopyDir>
-    </PropertyGroup>
-    <ItemGroup>
-      <CopyItem Include="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" />
-      <DeleteItem Include="$(CopyDir)\$(PackageId)*.nupkg" />
-    </ItemGroup>
-    <Delete Files="@(DeleteItem)"/>
-    <Copy SourceFiles="@(CopyItem)" DestinationFolder="$(CopyDir)" />
-  </Target>
+  <PropertyGroup>
+    <PackageReadmeFileSource>..\..\README.md</PackageReadmeFileSource>
+  </PropertyGroup>
+  <Import Project="..\**\PreparePackageReadme.targets"/>
+  <Import Project="..\**\CopyPackFiles.targets"/>
 
 </Project>
