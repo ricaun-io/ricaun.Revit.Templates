@@ -49,7 +49,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PackageReadmeFileSource>..\..\README.md</PackageReadmeFileSource>
+    <PackageReadmeFileSource>README.md</PackageReadmeFileSource>
   </PropertyGroup>
   <Import Project="PreparePackageReadme.targets"/>
   <Import Project="CopyPackFiles.targets"/>
