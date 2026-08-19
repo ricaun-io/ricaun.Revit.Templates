@@ -7,10 +7,12 @@ using ricaun.Nuke;
 using ricaun.Nuke.Components;
 using ricaun.Nuke.Extensions;
 
-class Build : NukeBuild, IPublishPack, ITemplateInstaller, ICompileBefore, IPrePack, ITest
+class Build : NukeBuild, IPublishPack, ITemplateInstaller, ICompileBefore, ICompileAfter, IPrePack, ITest
 {
     bool IHazCompileBefore.SignCompile => false;
-    string IHazCompileBefore.Name => "ricaun.Revit.Sdk*";
+    string IHazCompileBefore.Name => "ricaun.Revit.Sdk";
+    bool IHazCompileAfter.SignCompile => false;
+    string IHazCompileAfter.Name => "ricaun.Revit.Sdk.Sample";
     public static int Main() => Execute<Build>(x => x.From<IPublishPack>().Build);
 }
 

@@ -27,6 +27,7 @@
         "Build",
         "Clean",
         "Compile",
+        "CompileAfter",
         "CompileBefore",
         "GitPreRelease",
         "GitRelease",
