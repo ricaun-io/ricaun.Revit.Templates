@@ -38,7 +38,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | Revit Plugin $(PackageId)
---TargetFrameworks | Target Frameworks for Revit versions | 2027|2026|2025|2024|2023|2022|2021|2020|2019
+--TargetFrameworks | Target Frameworks for Revit versions | 2027,2026,2025,2024,2023,2022,2021,2020,2019
 
 ### Solution Autodesk AutoCAD Addin Template
 
