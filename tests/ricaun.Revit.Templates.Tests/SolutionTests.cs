@@ -8,11 +8,17 @@ namespace ricaun.Revit.Templates.Tests
 {
     public class SolutionTests
     {
-        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin")]
-        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", "--TargetFrameworks 2025 2024")]
-        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin")]
-        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin2025", "--AutoCAD2025 True --AutoCAD2024 True")]
-        public async Task CreateAsync(string template, string projectName, params string[] arguments)
+        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin", 9)]
+        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", 2, "--TargetFrameworks 2025 2024")]
+        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin", 4)]
+        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin2025", 1, "--AutoCAD2025 True --AutoCAD2024 True")]
+        public async Task CreateAsync(string template, string projectName, int expectedAssemblyCount, params string[] arguments)
+        {
+            var assemblyFiles = await RunBuildAsync(template, projectName, arguments);
+            Assert.AreEqual(expectedAssemblyCount, assemblyFiles.Length);
+        }
+
+        private static async Task<string[]> RunBuildAsync(string template, string projectName, params string[] arguments)
         {
             using (var creator = new DirectoryCreator(projectName))
             {
@@ -31,6 +37,8 @@ namespace ricaun.Revit.Templates.Tests
 
                 System.Console.WriteLine($"Files build found: {assemblyFiles.Length}");
                 Assert.IsNotEmpty(assemblyFiles, "File '.dll' not exist.");
+
+                return assemblyFiles;
             }
         }
 

@@ -73,7 +73,7 @@ The defines `REVIT` and `REVIT<version>` are set depending on the Revit version.
 The `REVIT<version>_OR_GREATER` defines are set for the Revit version and all greater versions.
 
 | RevitVersion | Defines Constants |
-|--------------| ----------------- |
+|--------------|-------------------|
 | 2019 | REVIT2019_OR_GREATER, REVIT2019, REVIT |
 | 2021 | REVIT2019_OR_GREATER, REVIT2020_OR_GREATER, REVIT2021_OR_GREATER, REVIT2021, REVIT |
 | 2024 | REVIT2019_OR_GREATER, REVIT2020_OR_GREATER, REVIT2021_OR_GREATER, REVIT2022_OR_GREATER, REVIT2023_OR_GREATER, REVIT2024_OR_GREATER, REVIT2024, REVIT |
@@ -92,7 +92,7 @@ By default the lowest version is set to 2019, the `RevitVersionMinimal` property
 The `TargetFrameworks` defaults to the following values depending on the `RevitVersion` property:
 
 | RevitVersion | TargetFramework |
-|--------------| --------------- |
+|--------------|-----------------|
 | 2017-2019 | net46 |
 | 2019-2020 | net47 |
 | 2021-2024 | net48 |

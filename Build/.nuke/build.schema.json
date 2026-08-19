@@ -35,6 +35,7 @@
         "PrePack",
         "Release",
         "Sign",
+        "TemplateInstaller",
         "Test"
       ]
     },
