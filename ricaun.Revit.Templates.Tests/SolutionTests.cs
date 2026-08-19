@@ -9,13 +9,15 @@ namespace ricaun.Revit.Templates.Tests
     public class SolutionTests
     {
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin")]
-        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", "--Revit2025 True --Revit2024 True")]
+        [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", "--TargetFrameworks 2025 2024")]
         [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin")]
         [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin2025", "--AutoCAD2025 True --AutoCAD2024 True")]
         public async Task CreateAsync(string template, string projectName, params string[] arguments)
         {
             using (var creator = new DirectoryCreator(projectName))
             {
+                await DotNetRunner.RunAsync("new", template, "--help");
+
                 var newResult = await DotNetRunner.RunNewAsync(template, projectName, arguments);
                 Assert.Zero(newResult);
 

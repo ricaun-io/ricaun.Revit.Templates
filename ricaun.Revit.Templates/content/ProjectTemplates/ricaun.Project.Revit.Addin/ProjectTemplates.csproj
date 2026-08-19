@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.8">
+<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.9">
 
   <PropertyGroup>
     <PackageId>ProjectTemplates</PackageId>
@@ -10,62 +10,13 @@
   <PropertyGroup>
     <AppLoader>Debug</AppLoader>
     <UseWPF>true</UseWPF>
-<!--#if (!NoRevitVersion)
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-#endif-->
-<!--#if (NoRevitVersion)
-    <TargetFrameworks>2019;2020;2021;2022;2023;2024;2025;2026;2027</TargetFrameworks>
-#endif-->
-<!--#if (!NoRevitVersion)
-    <Configurations>
-#endif-->
-<!--#if (Revit2027)
-      Debug 2027; 2027;
-#endif-->
-<!--#if (Revit2026)
-      Debug 2026; 2026;
-#endif-->
-<!--#if (Revit2025)
-      Debug 2025; 2025;
-#endif-->
-<!--#if (Revit2024)
-      Debug 2024; 2024;
-#endif-->
-<!--#if (Revit2023)
-      Debug 2023; 2023;
-#endif-->
-<!--#if (Revit2022)
-      Debug 2022; 2022;
-#endif-->
-<!--#if (Revit2021)
-      Debug 2021; 2021;
-#endif-->
-<!--#if (Revit2020)
-      Debug 2020; 2020;
-#endif-->
-<!--#if (Revit2019)
-      Debug 2019; 2019;
-#endif-->
-<!--#if (Revit2018)
-      Debug 2018; 2018;
-#endif-->
-<!--#if (Revit2017)
-      Debug 2017; 2017;
-#endif-->
-<!--#if (!NoRevitVersion)
-    </Configurations>
-#endif-->
+    <TargetFrameworks>TargetFrameworksReplace</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="ricaun.Revit.DB" Version="*"/>
     <PackageReference Include="ricaun.Revit.UI" Version="*"/>
     <PackageReference Include="ricaun.Revit.Mvvm" Version="*"/>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Revit\App.cs" />
-    <None Include="Revit\Commands\Command.cs" />
   </ItemGroup>
 
   <ItemGroup>

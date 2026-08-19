@@ -22,63 +22,63 @@
     "99999999-9999-9999-9999-999999999999"
   ],
   "symbols": {
-    "Revit2027": {
+    "TargetFrameworks": {
       "type": "parameter",
-      "description": "Configuration Version Revit 2027",
-      "dataType": "bool",
-      "defaultValue": "false"
+      "description": "Target Frameworks for Revit versions",
+      "datatype": "choice",
+      "allowMultipleValues": true,
+      "defaultValue": "2027|2026|2025|2024|2023|2022|2021|2020|2019",
+      "choices": [
+        {
+          "choice": "2027",
+          "description": "Revit 2027 - Target .NET 10.0"
+        },
+        {
+          "choice": "2026",
+          "description": "Revit 2026 - Target .NET 8.0"
+        },
+        {
+          "choice": "2025",
+          "description": "Revit 2025 - Target .NET 8.0"
+        },
+        {
+          "choice": "2024",
+          "description": "Revit 2024 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2023",
+          "description": "Revit 2023 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2022",
+          "description": "Revit 2022 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2021",
+          "description": "Revit 2021 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2020",
+          "description": "Revit 2020 - Target .NET Framework 4.7"
+        },
+        {
+          "choice": "2019",
+          "description": "Revit 2019 - Target .NET Framework 4.7"
+        }
+      ]
     },
-    "Revit2026": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2026",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2025": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2025",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2024": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2024",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2023": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2023",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2022": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2022",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2021": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2021",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2020": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2020",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "Revit2019": {
-      "type": "parameter",
-      "description": "Configuration Version Revit 2019",
-      "dataType": "bool",
-      "defaultValue": "false"
-    },
-    "NoRevitVersion": {
-      "type": "computed",
-      "value": "(Revit2027 == \"false\" & Revit2026 == \"false\" & Revit2025 == \"false\" & Revit2024 == \"false\" & Revit2023 == \"false\" & Revit2022 == \"false\" & Revit2021 == \"false\" & Revit2020 == \"false\" & Revit2019 == \"false\")"
+    "TargetFrameworksMsBuild": {
+      "type": "derived",
+      "valueSource": "TargetFrameworks",
+      "valueTransform": "ReplaceWithSemicolon",
+      "replaces": "TargetFrameworksReplace"
+    }
+  },
+  "forms": {
+    "ReplaceWithSemicolon": {
+      "identifier": "replace",
+      "pattern": "\\|",
+      "replacement": ";"
     }
   }
 }

@@ -30,8 +30,8 @@
   <PropertyGroup>
     <GitHubRepositoryOwner>ricaun-io</GitHubRepositoryOwner>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/ricaun.Revit.Templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/ricaun.Revit.Templates</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -73,7 +73,7 @@
       </FileItems>
     </ItemGroup>
 
-    <!--.Sdk/0.12.0-alpha.904"> -->
+    <!--.Sdk/0.12.0-alpha.9"> -->
 
     <Message Text="UpdateSdkVersion [$(Version)]: %(FileItems.Identity)" Importance="High" Condition="'%(FileItems.Changed)' == 'true'" />
 

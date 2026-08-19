@@ -74,12 +74,5 @@
       "type": "computed",
       "value": "buildType == \"autocad\""
     }
-    //"Authors": {
-    //  "type": "parameter",
-    //  "description": "Set Project Authors PropertyGroup",
-    //  "replaces": "AuthorsReplace",
-    //  "datatype": "string",
-    //  "defaultValue": "Authors"
-    //}
   }
 }

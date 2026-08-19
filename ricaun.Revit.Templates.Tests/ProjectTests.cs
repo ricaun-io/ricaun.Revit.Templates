@@ -10,15 +10,17 @@ namespace ricaun.Revit.Templates.Tests
     {
         [TestCase("ricaun-nuke-project", "ricaun.Build")]
         [TestCase("ricaun-revit-addin-project", "ricaun.RevitAddin.Project")]
-        [TestCase("ricaun-revit-addin-project", "ricaun.RevitAddin.Project2025", "--Revit2025 True --Revit2024 True")]
+        [TestCase("ricaun-revit-addin-project", "ricaun.RevitAddin.Project2025", "--TargetFrameworks 2025 2024")]
         [TestCase("ricaun-autocad-addin-project", "ricaun.AutoCAD.Project")]
         [TestCase("ricaun-autocad-addin-project", "ricaun.AutoCAD.Project2025", "--AutoCAD2025 True --AutoCAD2024 True")]
         [TestCase("ricaun-revittest-project", "ricaun.RevitTest.Project")]
-        [TestCase("ricaun-revittest-project", "ricaun.RevitTest.Project2025", "--Revit2025 True --Revit2024 True")]
+        [TestCase("ricaun-revittest-project", "ricaun.RevitTest.Project2025", "--TargetFrameworks 2025 2024")]
         public async Task CreateAsync(string template, string projectName, params string[] arguments)
         {
             using (var creator = new DirectoryCreator(projectName))
             {
+                await DotNetRunner.RunAsync("new", template, "--help");
+
                 var newResult = await DotNetRunner.RunNewAsync(template, projectName, arguments);
                 Assert.Zero(newResult);
 

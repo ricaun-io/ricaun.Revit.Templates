@@ -6,4 +6,4 @@
 
 Configure the file `parameters.json` in the folder `.nuke`
 
-* Write the solution name on the "Solution" parameter as a `.sln`
+* Write the solution name on the "Solution" parameter as a `.sln` or `.slnx`
