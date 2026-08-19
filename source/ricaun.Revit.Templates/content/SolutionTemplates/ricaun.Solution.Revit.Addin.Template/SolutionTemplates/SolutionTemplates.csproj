@@ -1,7 +1,7 @@
-<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.9">
+<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.1000">
 
   <PropertyGroup>
-    <PackageId>ProjectTemplates</PackageId>
+    <PackageId>SolutionTemplates</PackageId>
     <Company>CompanyReplace</Company>
     <Authors>AuthorsReplace</Authors>
     <Description>DescriptionReplace</Description>

@@ -26,7 +26,19 @@ namespace ricaun.Revit.Templates.Tests
                 Assert.IsNotNull(solutionFile, "File '.sln' not exist.");
                 var buildResult = await DotNetRunner.RunBuildAsync(solutionFile);
                 Assert.Zero(buildResult);
+
+                var assemblyFiles = GetOutputFiles(directory, projectName);
+
+                System.Console.WriteLine($"Files build found: {assemblyFiles.Length}");
+                Assert.IsNotEmpty(assemblyFiles, "File '.dll' not exist.");
             }
+        }
+
+        private static string[] GetOutputFiles(string directory, string projectName)
+        {
+            return Directory.GetFiles(directory, $"{projectName}*.dll", SearchOption.AllDirectories)
+                .Where(f => !f.Contains("\\obj\\"))
+                .ToArray();
         }
     }
 }
