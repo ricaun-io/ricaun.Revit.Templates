@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using ricaun.Revit.Templates.Tests.Utils;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,13 @@ namespace ricaun.Revit.Templates.Tests
 {
     public class SolutionTests
     {
+        [TestCase("ricaun-revit-addin-sln")]
+        [TestCase("ricaun-autocad-addin-sln")]
+        public async Task HelpAsync(string template)
+        {
+            await DotNetRunner.RunAsync("new", template, "--help");
+        }
+
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin", 7)]
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", 2, "--TargetFrameworks 2025 2024")]
         [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin", 7)]
@@ -18,12 +26,10 @@ namespace ricaun.Revit.Templates.Tests
             Assert.AreEqual(expectedAssemblyCount, assemblyFiles.Length);
         }
 
-        private static async Task<string[]> RunBuildAsync(string template, string projectName, params string[] arguments)
+        private static async Task<string[]> RunBuildAsync(string template, string projectName, string[] arguments)
         {
             using (var creator = new DirectoryCreator(projectName))
             {
-                await DotNetRunner.RunAsync("new", template, "--help");
-
                 var newResult = await DotNetRunner.RunNewAsync(template, projectName, arguments);
                 Assert.Zero(newResult);
 

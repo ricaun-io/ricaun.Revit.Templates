@@ -10,6 +10,7 @@ public class DotNetRunner
 {
     public static async Task<int> RunNewAsync(string template, string projectName, params string[] arguments)
     {
+        arguments ??= Array.Empty<string>();
         var runArguments = new List<string>();
         runArguments.Add(template);
         runArguments.Add("-n");
@@ -19,6 +20,7 @@ public class DotNetRunner
     }
     public static async Task<int> RunBuildAsync(string projectPath, params string[] arguments)
     {
+        arguments ??= Array.Empty<string>();
         var runArguments = new List<string>();
         runArguments.Add(projectPath);
         runArguments.AddRange(arguments);
@@ -26,6 +28,7 @@ public class DotNetRunner
     }
     public static async Task<int> RunAsync(string command, params string[] arguments)
     {
+        arguments ??= Array.Empty<string>();
         using var process = new Process
         {
             StartInfo = new ProcessStartInfo
