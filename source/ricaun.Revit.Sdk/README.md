@@ -4,8 +4,8 @@ Sdk for Revit API development to support multiple Revit versions in a single pro
 
 ## Features
 
-* Automatic `TargetFrameworks` or `Configuration` for Revit versions.
-* Automatic `Defines` for Revit versions.
+* Automatic `TargetFrameworks` using [TFM-Aliases](https://github.com/NuGet/Home/blob/dev/accepted/2025/Multiple-Equivalent-Framework-Support-TFM-As-Aliases.md) for Revit versions. 
+* Automatic `Defines` using [or-greater-defines](https://github.com/dotnet/designs/blob/main/accepted/2020/or-greater-defines/or-greater-defines.md) for Revit versions.
 
 ## Installation
 
