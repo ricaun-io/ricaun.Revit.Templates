@@ -1,10 +1,5 @@
 <Project>
 
-  <!-- Revit References. -->
-  <ItemGroup Condition=" '$(EnableRevitReferences)' == 'true' AND '$(RevitVersion)' != '' ">
-    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
-  </ItemGroup>
-
   <!-- AppendRevitVersionToOutputPath -->
   <PropertyGroup>
     <AppendRevitVersionToOutputPath Condition="'$(AppendRevitVersionToOutputPath)' == '' AND '$(AppendTargetFrameworkToOutputPath)' == 'false'">true</AppendRevitVersionToOutputPath>
