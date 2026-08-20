@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <!--<PackageReadmeFileSource>..\..\README.md</PackageReadmeFileSource>-->
     <ReplaceDotSlash>https://raw.githubusercontent.com/ricaun-io/ricaun.Revit.Templates/refs/tags/$(Version)/</ReplaceDotSlash>
+    <ReplaceSlashVersion>/$(Version)</ReplaceSlashVersion>
   </PropertyGroup>
 
   <Target Name="PreparePackageReadme" BeforeTargets="BeforeBuild" Condition="'$(PackageReadmeFileSource)' != ''">
@@ -11,6 +11,7 @@
       <ReadmeContentSource>$([System.IO.File]::ReadAllText('$(PackageReadmeFileSource)'))</ReadmeContentSource>
       <ReadmeContent>$(ReadmeContentSource)</ReadmeContent>
       <ReadmeContent>$([System.String]::Copy('$(ReadmeContent)').Replace('./', '$(ReplaceDotSlash)'))</ReadmeContent>
+      <ReadmeContent>$([System.String]::Copy('$(ReadmeContent)').Replace('/&lt;version&gt;', '$(ReplaceSlashVersion)'))</ReadmeContent>
       <ReadmeChanged Condition="'$(ReadmeContentSource)' != '$(ReadmeContent)'">true</ReadmeChanged>
     </PropertyGroup>
 

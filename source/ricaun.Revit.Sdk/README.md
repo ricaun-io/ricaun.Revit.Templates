@@ -21,7 +21,7 @@ The `Sdk` support the following `TargetFrameworks` for Revit versions:
 ```xml
 <Project Sdk="ricaun.Revit.Sdk/<version>">
   <PropertyGroup>
-    <TargetFrameworks>2027;2026;2025;2024;2023;2022;2021;2020;2019</TargetFrameworks>
+    <TargetFrameworks>2027;2026;2025;2024;2023;2022;2021</TargetFrameworks>
   </PropertyGroup>
 </Project>
 ```
@@ -34,7 +34,7 @@ The `Sdk` support `Configurations` for Revit versions and the `TargetFramework` 
 ```xml
 <Project Sdk="ricaun.Revit.Sdk/<version>">
   <PropertyGroup>
-    <Configuration>2027;Debug 2027</Configuration>
+    <Configuration>2027;Debug 2027;2026;Debug 2026;2025;Debug 2025;2024;Debug 2024</Configuration>
   </PropertyGroup>
 </Project>
 ```
@@ -79,6 +79,20 @@ By default the lowest version is set to 2019, the `RevitVersionMinimal` property
   <RevitVersionMinimal>2019</RevitVersionMinimal>
 </PropertyGroup>
 ```
+
+## Sdk Properties
+
+The `Sdk` sets the following properties automatically:
+
+| Property | Value | Description |
+| -------- | ----- | ----------- |
+| TargetFramework | *dynamic* | Automatically sets the `TargetFramework` based on the `RevitVersion` property. |
+| LangVersion | latest | Sets the latest C# language version |
+| PlatformTarget | AnyCPU | The platform target any CPU |
+| ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch | None | Ignore the warning for assembly architecture mismatch |
+| Optimize | *dynamic* | Enabled for `Release` configurations. |
+| DebugSymbols | *dynamic* | Enabled for `Debug` configurations. |
+| DebugType | *dynamic* | `portable` for `Debug`, `none` for `Release` configurations. |
 
 ### TargetFrameworks defaults values
 

@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <MakeDir Directories="$(CopyAndReplaceFilesDir)" />
-    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopy.Filename)%(FilesToCopy.Extension) -&gt; %(FilesToCopy.DestinationFile)" Importance="High" />
+    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopy.Filename)%(FilesToCopy.Extension) -&gt; %(FilesToCopy.DestinationFile)" Importance="Low" />
 
     <WriteLinesToFile
       File="%(FilesToCopy.DestinationFile)"
@@ -30,20 +30,20 @@
       <CopyFilesDir>$(ProjectDir)..\ricaun.Revit.Sdk\</CopyFilesDir>
     </PropertyGroup>
     <ItemGroup>
-      <FilesToCopy2 Include="$(CopyFilesDir)\README.md" />
-      <FilesToCopy2 Update="@(FilesToCopy2)">
+      <FilesToCopyReadme Include="$(CopyFilesDir)\README.md" />
+      <FilesToCopyReadme Update="@(FilesToCopyReadme)">
         <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
         <DestinationFile>$(CopyAndReplaceFilesDir)\$([System.String]::Copy('%(Filename)').Replace('Revit', 'AutoCAD'))%(Extension)</DestinationFile>
         <FileContent>$([System.IO.File]::ReadAllText('%(FullPath)').Replace('Revit_All_Main_Versions_API_x64','Chuongmep.Acad.Api.acmgd').Replace('Revit', 'AutoCAD').Replace('REVIT', 'AUTOCAD'))</FileContent>
-      </FilesToCopy2>
+      </FilesToCopyReadme>
     </ItemGroup>
 
     <MakeDir Directories="$(CopyAndReplaceFilesDir)" />
-    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopy2.Filename)%(FilesToCopy2.Extension) -&gt; %(FilesToCopy2.DestinationFile)" Importance="High" />
+    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopyReadme.Filename)%(FilesToCopyReadme.Extension) -&gt; %(FilesToCopyReadme.DestinationFile)" Importance="Low" />
 
     <WriteLinesToFile
-      File="%(FilesToCopy2.DestinationFile)"
-      Lines="%(FilesToCopy2.FileContent)"
+      File="%(FilesToCopyReadme.DestinationFile)"
+      Lines="%(FilesToCopyReadme.FileContent)"
       Overwrite="true" />
   </Target>
   

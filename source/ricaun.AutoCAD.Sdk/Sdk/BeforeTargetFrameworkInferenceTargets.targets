@@ -7,7 +7,7 @@
     <_TargetFrameworkReplace Condition="'$(AutoCADVersion)' == ''">false</_TargetFrameworkReplace>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(_TargetFrameworkReplace)">
+  <PropertyGroup Condition="$(_TargetFrameworkReplace) AND '$(TargetFrameworkIdentifier)' == ''">
     <TargetFrameworkIdentifier Condition="$(AutoCADVersion) &lt; '2025'">.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkIdentifier Condition="$(AutoCADVersion) &gt;= '2025'">.NETCoreApp</TargetFrameworkIdentifier>
     <TargetPlatformIdentifier Condition="$(AutoCADVersion) &gt;= '2025'">Windows</TargetPlatformIdentifier>
