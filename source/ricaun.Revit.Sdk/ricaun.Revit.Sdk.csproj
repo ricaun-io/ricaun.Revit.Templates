@@ -54,6 +54,6 @@
   <Import Project="PreparePackageReadme.targets" />
   <Import Project="CopyPackFiles.targets" />
   <Import Project="UpdateSdkVersionCsprojFiles.targets" />
-  <!--.Sdk/0.12.0-alpha.18"> -->
+  <!--.Sdk/0.12.0-alpha.19"> -->
   
 </Project>

@@ -13,6 +13,13 @@
     <Product>$(PackageId)</Product>
   </PropertyGroup>
 
+  <!-- MSBuildSdk Template -->
+  <PropertyGroup>
+    <PackageType>MSBuildSdk</PackageType>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
   <PropertyGroup>
     <Company>ricaun</Company>
     <Authors>Luiz Henrique Cassettari</Authors>
@@ -46,7 +53,6 @@
   </PropertyGroup>
   <Import Project="..\**\PreparePackageReadme.targets"/>
   <Import Project="..\**\CopyPackFiles.targets"/>
-  
   <Import Project="CopyAndReplaceFilesAutoCAD.targets" />
 
   <ItemGroup>
