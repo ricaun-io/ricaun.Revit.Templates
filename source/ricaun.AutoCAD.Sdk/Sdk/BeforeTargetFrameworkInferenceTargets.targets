@@ -1,0 +1,42 @@
+<Project>
+
+  <PropertyGroup>
+    <_TargetFrameworkReplace>false</_TargetFrameworkReplace>
+    <_TargetFrameworkReplace Condition="$(IsTargetFrameworkNumeric)">true</_TargetFrameworkReplace>
+    <_TargetFrameworkReplace Condition="!$(IsTargetFrameworkNumeric) AND '$(TargetFramework)' == ''">true</_TargetFrameworkReplace>
+    <_TargetFrameworkReplace Condition="'$(AutoCADVersion)' == ''">false</_TargetFrameworkReplace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(_TargetFrameworkReplace)">
+    <TargetFrameworkIdentifier Condition="$(AutoCADVersion) &lt; '2025'">.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkIdentifier Condition="$(AutoCADVersion) &gt;= '2025'">.NETCoreApp</TargetFrameworkIdentifier>
+    <TargetPlatformIdentifier Condition="$(AutoCADVersion) &gt;= '2025'">Windows</TargetPlatformIdentifier>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2017'">v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2019'">v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2021'">v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2025'">v8.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2027'">v10.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2029'">v12.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion Condition="$(AutoCADVersion) &gt;= '2031'">v14.0</TargetFrameworkVersion>
+    <TargetFrameworkMoniker>$(TargetFrameworkIdentifier),Version=$(TargetFrameworkVersion)</TargetFrameworkMoniker>
+
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2017'">net46</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2019'">net47</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2021'">net48</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2025'">net8.0-windows</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2027'">net10.0-windows</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2029'">net12.0-windows</AssetTargetFallback>
+    <AssetTargetFallback Condition="$(AutoCADVersion) &gt;= '2031'">net14.0-windows</AssetTargetFallback>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(_TargetFrameworkReplace) AND '$(TargetFramework)' == ''">
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2017'">net46</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2019'">net47</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2021'">net48</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2025'">net8.0-windows</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2027'">net10.0-windows</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2029'">net12.0-windows</TargetFramework>
+    <TargetFramework Condition="$(AutoCADVersion) &gt;= '2031'">net14.0-windows</TargetFramework>
+  </PropertyGroup>
+
+</Project>

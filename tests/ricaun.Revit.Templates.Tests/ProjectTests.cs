@@ -12,7 +12,7 @@ namespace ricaun.Revit.Templates.Tests
         [TestCase("ricaun-revit-addin-project", "ricaun.RevitAddin.Project")]
         [TestCase("ricaun-revit-addin-project", "ricaun.RevitAddin.Project2025", "--TargetFrameworks 2025 2024")]
         [TestCase("ricaun-autocad-addin-project", "ricaun.AutoCAD.Project")]
-        [TestCase("ricaun-autocad-addin-project", "ricaun.AutoCAD.Project2025", "--AutoCAD2025 True --AutoCAD2024 True")]
+        [TestCase("ricaun-autocad-addin-project", "ricaun.AutoCAD.Project2025", "--TargetFrameworks 2025 2024")]
         [TestCase("ricaun-revittest-project", "ricaun.RevitTest.Project")]
         [TestCase("ricaun-revittest-project", "ricaun.RevitTest.Project2025", "--TargetFrameworks 2025 2024")]
         public async Task CreateAsync(string template, string projectName, params string[] arguments)

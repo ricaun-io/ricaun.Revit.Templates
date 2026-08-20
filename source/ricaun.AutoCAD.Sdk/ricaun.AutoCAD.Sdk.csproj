@@ -6,18 +6,11 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>ricaun.Revit.Sdk</PackageId>
+    <PackageId>ricaun.AutoCAD.Sdk</PackageId>
     <Version>$(VersionSdk)</Version>
-    <Description>ricaun Sdk for RevitAddin development.</Description>
-    <PackageTags>autodesk;revit;revitapi;msbuild;sdk</PackageTags>
+    <Description>ricaun Sdk for AutoCADAddin development.</Description>
+    <PackageTags>autodesk;autocad;autocadapi;msbuild;sdk</PackageTags>
     <Product>$(PackageId)</Product>
-  </PropertyGroup>
-
-  <!-- MSBuildSdk Template -->
-  <PropertyGroup>
-    <PackageType>MSBuildSdk</PackageType>
-    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
-    <IncludeBuildOutput>false</IncludeBuildOutput>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -51,9 +44,13 @@
   <PropertyGroup>
     <PackageReadmeFileSource>README.md</PackageReadmeFileSource>
   </PropertyGroup>
-  <Import Project="PreparePackageReadme.targets" />
-  <Import Project="CopyPackFiles.targets" />
-  <Import Project="UpdateSdkVersionCsprojFiles.targets" />
-  <!--.Sdk/0.12.0-alpha.16"> -->
+  <Import Project="..\**\PreparePackageReadme.targets"/>
+  <Import Project="..\**\CopyPackFiles.targets"/>
   
+  <Import Project="CopyAndReplaceFilesAutoCAD.targets" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\ricaun.Revit.Sdk\ricaun.Revit.Sdk.csproj" PrivateAssets="All" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
 </Project>

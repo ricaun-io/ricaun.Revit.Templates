@@ -10,8 +10,8 @@ namespace ricaun.Revit.Templates.Tests
     {
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin", 9)]
         [TestCase("ricaun-revit-addin-sln", "ricaun.RevitAddin2025", 2, "--TargetFrameworks 2025 2024")]
-        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin", 4)]
-        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin2025", 1, "--AutoCAD2025 True --AutoCAD2024 True")]
+        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin", 7)]
+        [TestCase("ricaun-autocad-addin-sln", "ricaun.AutoCADAddin2025", 2, "--TargetFrameworks 2025 2024")]
         public async Task CreateAsync(string template, string projectName, int expectedAssemblyCount, params string[] arguments)
         {
             var assemblyFiles = await RunBuildAsync(template, projectName, arguments);

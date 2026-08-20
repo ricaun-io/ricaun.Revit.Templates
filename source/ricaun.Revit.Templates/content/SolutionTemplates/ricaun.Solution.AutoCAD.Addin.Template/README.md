@@ -1,26 +1,6 @@
 # SolutionTemplates
 
-<!--#if (AutoCAD2019)
-[![AutoCAD 2019](https://img.shields.io/badge/AutoCAD-2019+-blue.svg)](../..)
-#elseif (AutoCAD2020)
-[![AutoCAD 2020](https://img.shields.io/badge/AutoCAD-2020+-blue.svg)](../..)
-#elseif (AutoCAD2021)
-[![AutoCAD 2021](https://img.shields.io/badge/AutoCAD-2021+-blue.svg)](../..)
-#elseif (AutoCAD2022)
-[![AutoCAD 2022](https://img.shields.io/badge/AutoCAD-2022+-blue.svg)](../..)
-#elseif (AutoCAD2023)
-[![AutoCAD 2023](https://img.shields.io/badge/AutoCAD-2023+-blue.svg)](../..)
-#elseif (AutoCAD2024)
-[![AutoCAD 2024](https://img.shields.io/badge/AutoCAD-2024+-blue.svg)](../..)
-#elseif (AutoCAD2025)
-[![AutoCAD 2025](https://img.shields.io/badge/AutoCAD-2025+-blue.svg)](../..)
-#elseif (AutoCAD2026)
-[![AutoCAD 2026](https://img.shields.io/badge/AutoCAD-2026+-blue.svg)](../..)
-#elseif (AutoCAD2027)
-[![AutoCAD 2027](https://img.shields.io/badge/AutoCAD-2027+-blue.svg)](../..)
-#else
-[![AutoCAD 2019](https://img.shields.io/badge/AutoCAD-2019+-blue.svg)](../..)
-#endif-->
+[![AutoCAD LastTargetFrameworkReplace](https://img.shields.io/badge/AutoCAD-LastTargetFrameworkReplace+-blue.svg)](../..)
 [![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 <!--#if (License)

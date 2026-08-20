@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.12.0] / 2026-08-15
 ### Features
 - Support `ricaun.Revit.Sdk` with `TargetFramework` and `Configurations` as Revit version.
+- Support `ricaun.AutoCAD.Sdk` with `TargetFramework` and `Configurations` as AutoCAD version.
 ### Updates
 - Create `ricaun.Revit.Sdk.Sample` to use sdk `ricaun.Revit.Sdk`.
 - Create `ricaun.Revit.Sdk.Sample.Tests` to use sdk `ricaun.Revit.Sdk` and `ricaun.Revit.Sdk.Sample` reference.

@@ -1,0 +1,25 @@
+<Project>
+
+  <!-- AppLoader -->
+  <PropertyGroup>
+    <_HasAppLoader>false</_HasAppLoader>
+    <_HasAppLoader Condition="'$(AppLoader)' != ''">true</_HasAppLoader>
+    <_HasPackageId>false</_HasPackageId>
+    <_HasPackageId Condition="'$(PackageId)' != ''">true</_HasPackageId>
+    <AppLoader Condition="'$(AppLoader)' == 'true'">Debug</AppLoader>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="$(_HasAppLoader) AND $(_HasPackageId)">
+    <AppLoader>$([System.String]::Copy('$(AppLoader)').ToLowerInvariant())</AppLoader>
+    <Version Condition="'$(Version)' == ''">1.0.0</Version>
+    <Revision Condition="'$(Revision)' == ''">$([MSBuild]::Divide($([System.DateTime]::Now.TimeOfDay.TotalSeconds), 4).ToString('F0'))</Revision>
+    <PackageAssemblyVersion Condition="$(AppLoader.Contains('version'))">.$(Version)</PackageAssemblyVersion>
+    <PackageAssemblyVersion Condition="$(AppLoader.Contains('debug')) AND $(Configuration.Contains('Debug'))">.Dev.$(Version).$(Revision)</PackageAssemblyVersion>
+    <AssemblyName>$(PackageId)$(PackageAssemblyVersion)</AssemblyName>
+  </PropertyGroup>
+
+  <Target Name="WarningInvalidAppLoader" BeforeTargets="BeforeBuild" Condition="$(_HasAppLoader) AND !$(_HasPackageId)">
+    <Message Text="[$(TargetFramework)] AppLoader ($(AppLoader)) is enabled but PackageId is not set. Please set the PackageId property in your project file." Importance="High" />
+  </Target>
+
+</Project>

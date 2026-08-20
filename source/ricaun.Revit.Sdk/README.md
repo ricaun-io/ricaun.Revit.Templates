@@ -2,13 +2,6 @@
 
 Sdk for Revit API development to support multiple Revit versions in a single project.
 
-[![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](https://github.com/ricaun-io/ricaun.Revit.Templates)
-[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
-[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](https://github.com/ricaun-io/ricaun.Revit.Templates/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.Revit.Templates/actions)
-[![Templates](https://img.shields.io/nuget/v/ricaun.Revit.Templates?logo=nuget&label=Templates&color=blue)](https://www.nuget.org/packages/ricaun.Revit.Templates)
-[![Revit.Sdk](https://img.shields.io/nuget/v/ricaun.Revit.Sdk?logo=nuget&label=Revit.Sdk&color=blue)](https://www.nuget.org/packages/ricaun.Revit.Sdk)
-
 ## Features
 
 * Automatic `TargetFrameworks` or `Configuration` for Revit versions.

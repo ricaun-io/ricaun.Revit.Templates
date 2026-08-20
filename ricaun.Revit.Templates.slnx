@@ -13,6 +13,7 @@
     <File Path="README.md" />
   </Folder>
   <Folder Name="/Source/">
+    <Project Path="source/ricaun.AutoCAD.Sdk/ricaun.AutoCAD.Sdk.csproj" />
     <Project Path="source/ricaun.Revit.Sdk/ricaun.Revit.Sdk.csproj" />
     <Project Path="source/ricaun.Revit.Templates/ricaun.Revit.Templates.csproj" />
   </Folder>
