@@ -38,7 +38,14 @@ The `Sdk` support `Configurations` for Revit versions and the `TargetFramework` 
   </PropertyGroup>
 </Project>
 ```
+
 **The `RevitVersion` is set based in the `Configuration` number.**
+
+The `OutputPath` is automatically set between `bin\Debug\<RevitVersion>` and `bin\Release\<RevitVersion>` depending on the `Configuration` name.
+
+### AppendRevitVersionToOutputPath
+
+The property `AppendRevitVersionToOutputPath` is automatically set to `true` when using the `Configuration` property. You can override this behavior by setting it to `false` in your project file.
 
 ## RevitVersion
 
@@ -49,13 +56,13 @@ The property group `RevitVersion` is set to the Revit version depending on the `
 </ItemGroup>
 ```
 
-### IsRevitVersionNetCore and IsRevitVersionNetFramework
+### IsRevitVersion
 
 These properties `IsRevitVersionNetCore` and `IsRevitVersionNetFramework` are set depending on whether the Revit version is targeting .NET Core or .NET Framework.
 
 ```
 <PropertyGroup Condition="$(IsRevitVersionNetFramework)">
-  <UseWindowsForms>true</UseWindowsForms>
+  <Reference Include="System.IO.Compression" />
 </PropertyGroup>
 ```
 
@@ -79,6 +86,18 @@ By default the lowest version is set to 2019, the `RevitVersionMinimal` property
   <RevitVersionMinimal>2019</RevitVersionMinimal>
 </PropertyGroup>
 ```
+
+## AppLoader
+
+The property `AppLoader` is used change how the `AssemblyName` is generated. 
+* The `Version` keywork is used to generate the `AssemblyName` with the assembly version.
+* The `Debug` keyword is used to generate the `AssemblyName` with a timestamp number. (Only available with `Debug` configuration.)
+```xml
+<PropertyGroup>
+  <AppLoader>Debug;Version</AppLoader>
+</PropertyGroup>
+```
+This property is used work with the plugin [ricaun.AppLoader](https://ricaun.com/AppLoader/).
 
 ## Sdk Properties
 

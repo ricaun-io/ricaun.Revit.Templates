@@ -38,7 +38,14 @@ The `Sdk` support `Configurations` for AutoCAD versions and the `TargetFramework
   </PropertyGroup>
 </Project>
 ```
+
 **The `AutoCADVersion` is set based in the `Configuration` number.**
+
+The `OutputPath` is automatically set between `bin\Debug\<AutoCADVersion>` and `bin\Release\<AutoCADVersion>` depending on the `Configuration` name.
+
+### AppendAutoCADVersionToOutputPath
+
+The property `AppendAutoCADVersionToOutputPath` is automatically set to `true` when using the `Configuration` property. You can override this behavior by setting it to `false` in your project file.
 
 ## AutoCADVersion
 
@@ -49,13 +56,13 @@ The property group `AutoCADVersion` is set to the AutoCAD version depending on t
 </ItemGroup>
 ```
 
-### IsAutoCADVersionNetCore and IsAutoCADVersionNetFramework
+### IsAutoCADVersion
 
 These properties `IsAutoCADVersionNetCore` and `IsAutoCADVersionNetFramework` are set depending on whether the AutoCAD version is targeting .NET Core or .NET Framework.
 
 ```
 <PropertyGroup Condition="$(IsAutoCADVersionNetFramework)">
-  <UseWindowsForms>true</UseWindowsForms>
+  <Reference Include="System.IO.Compression" />
 </PropertyGroup>
 ```
 
@@ -79,6 +86,18 @@ By default the lowest version is set to 2019, the `AutoCADVersionMinimal` proper
   <AutoCADVersionMinimal>2019</AutoCADVersionMinimal>
 </PropertyGroup>
 ```
+
+## AppLoader
+
+The property `AppLoader` is used change how the `AssemblyName` is generated. 
+* The `Version` keywork is used to generate the `AssemblyName` with the assembly version.
+* The `Debug` keyword is used to generate the `AssemblyName` with a timestamp number. (Only available with `Debug` configuration.)
+```xml
+<PropertyGroup>
+  <AppLoader>Debug;Version</AppLoader>
+</PropertyGroup>
+```
+This property is used work with the plugin [ricaun.AppLoader](https://ricaun.com/AppLoader/).
 
 ## Sdk Properties
 

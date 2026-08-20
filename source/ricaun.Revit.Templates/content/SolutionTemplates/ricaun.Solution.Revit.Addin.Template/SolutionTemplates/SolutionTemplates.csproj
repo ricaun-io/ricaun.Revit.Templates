@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.19">
+<Project Sdk="ricaun.Revit.Sdk/0.12.0-alpha.21">
 
   <PropertyGroup>
     <PackageId>SolutionTemplates</PackageId>
