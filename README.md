@@ -55,7 +55,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | AutoCAD Plugin $(PackageId)
---TargetFrameworks | Target Frameworks for Revit versions | 2027,2026,2025,2024,2023,2022,2021
+--TargetFrameworks | Target Frameworks for AutoCAD versions | 2027,2026,2025,2024,2023,2022,2021
 
 ## ProjectTemplates
 The `ProjectTemplates` are installed automatically in `Visual Studio 2026` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.
