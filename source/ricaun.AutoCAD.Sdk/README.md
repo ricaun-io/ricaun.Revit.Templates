@@ -4,8 +4,8 @@ Sdk for AutoCAD API development to support multiple AutoCAD versions in a single
 
 ## Features
 
-* Automatic `TargetFrameworks` or `Configuration` for AutoCAD versions.
-* Automatic `Defines` for AutoCAD versions.
+* Automatic `TargetFrameworks` using [TFM-Aliases](https://github.com/NuGet/Home/blob/dev/accepted/2025/Multiple-Equivalent-Framework-Support-TFM-As-Aliases.md) for AutoCAD versions. 
+* Automatic `Defines` using [or-greater-defines](https://github.com/dotnet/designs/blob/main/accepted/2020/or-greater-defines/or-greater-defines.md) for AutoCAD versions.
 
 ## Installation
 

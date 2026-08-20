@@ -52,13 +52,13 @@
     <Compile Remove="**\*" />
     <Content Include="content\**\*" />
     <Content Include="tools\**\*" CopyToOutputDirectory="Always" />
-    <None Update="*.cmd" CopyToOutputDirectory="PreserveNewest"  />
+    <None Update="*.cmd" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <PropertyGroup>
     <PackageReadmeFileSource>..\..\README.md</PackageReadmeFileSource>
   </PropertyGroup>
-  <Import Project="..\**\PreparePackageReadme.targets"/>
-  <Import Project="..\**\CopyPackFiles.targets"/>
+  <Import Project="..\**\PreparePackageReadme.targets" />
+  <Import Project="..\**\CopyPackFiles.targets" />
 
 </Project>
