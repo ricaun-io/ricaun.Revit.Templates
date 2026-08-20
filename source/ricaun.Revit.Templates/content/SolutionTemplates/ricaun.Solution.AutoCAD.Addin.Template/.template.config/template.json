@@ -23,6 +23,10 @@
     "99999999-9999-9999-9999-999999999999"
   ],
   "symbols": {
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
     "Authors": {
       "type": "parameter",
       "description": "Set Project Authors PropertyGroup",
@@ -123,6 +127,12 @@
   "sources": [
     {
       "modifiers": [
+        {
+          "condition": "(HostIdentifier == \"dotnetcli\" ||  HostIdentifier == \"dotnetcli-preview\")",
+          "exclude": [
+            "SolutionTemplates.sln"
+          ]
+        },
         {
           "condition": "(!License)",
           "exclude": [
