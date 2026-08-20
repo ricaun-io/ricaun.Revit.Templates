@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.AutoCAD.Sdk/0.12.0-alpha.21">
+<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0-beta">
 
   <PropertyGroup>
     <PackageId>ProjectTemplates</PackageId>
