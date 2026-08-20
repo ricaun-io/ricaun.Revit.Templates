@@ -1,7 +1,7 @@
-<Project Sdk="ricaun.AutoCAD.Sdk/0.12.0-alpha.16">
+<Project Sdk="ricaun.AutoCAD.Sdk/0.12.0-alpha.17">
 
   <PropertyGroup>
-    <PackageId>SolutionTemplates</PackageId>
+    <PackageId>ProjectTemplates</PackageId>
     <Company>CompanyReplace</Company>
     <Authors>AuthorsReplace</Authors>
     <Description>DescriptionReplace</Description>

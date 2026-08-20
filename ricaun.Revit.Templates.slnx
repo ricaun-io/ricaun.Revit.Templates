@@ -3,6 +3,7 @@
     <Project Path="Build/Build.csproj" />
   </Folder>
   <Folder Name="/Samples/">
+    <Project Path="samples/ricaun.AutoCAD.Sdk.Sample/ricaun.AutoCAD.Sdk.Sample.csproj" />
     <Project Path="samples/ricaun.Revit.Sdk.Sample/ricaun.Revit.Sdk.Sample.csproj" />
   </Folder>
   <Folder Name="/Solution/">

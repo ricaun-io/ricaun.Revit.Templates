@@ -55,7 +55,7 @@
       "description": "Target Frameworks for Revit versions",
       "datatype": "choice",
       "allowMultipleValues": true,
-      "defaultValue": "2027|2026|2025|2024|2023|2022|2021|2020|2019",
+      "defaultValue": "2027|2026|2025|2024|2023|2022|2021",
       "choices": [
         {
           "choice": "2027",

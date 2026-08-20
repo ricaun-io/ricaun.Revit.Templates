@@ -6,8 +6,10 @@ RevitAddin and AutoCADAddin Templates and ItemTemplates for C# Applications.
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/ricaun.Revit.Templates/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.Revit.Templates/actions)
+
 [![Templates](https://img.shields.io/nuget/v/ricaun.Revit.Templates?logo=nuget&label=Templates&color=blue)](https://www.nuget.org/packages/ricaun.Revit.Templates)
 [![Revit.Sdk](https://img.shields.io/nuget/v/ricaun.Revit.Sdk?logo=nuget&label=Revit.Sdk&color=blue)](https://www.nuget.org/packages/ricaun.Revit.Sdk)
+[![AutoCAD.Sdk](https://img.shields.io/nuget/v/ricaun.AutoCAD.Sdk?logo=nuget&label=AutoCAD.Sdk&color=blue)](https://www.nuget.org/packages/ricaun.AutoCAD.Sdk)
 
 [![Create a new project](./source/ricaun.Revit.Templates/Resources/create.png)](https://github.com/ricaun-io/ricaun.Revit.Templates)
 
@@ -38,7 +40,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | Revit Plugin $(PackageId)
---TargetFrameworks | Target Frameworks for Revit versions | 2027,2026,2025,2024,2023,2022,2021,2020,2019
+--TargetFrameworks | Target Frameworks for Revit versions | 2027,2026,2025,2024,2023,2022,2021
 
 ### Solution Autodesk AutoCAD Addin Template
 
@@ -53,15 +55,7 @@ Options | Description | Default
 --Company | Set Project Company PropertyGroup | Company
 --License |  Set Project License MIT | true
 --Description | Set Project Description PropertyGroup | AutoCAD Plugin $(PackageId)
---AutoCAD2027 | Configuration Version AutoCAD 2027 | false
---AutoCAD2026 | Configuration Version AutoCAD 2026 | false
---AutoCAD2025 | Configuration Version AutoCAD 2025 | false
---AutoCAD2024 | Configuration Version AutoCAD 2024 | false
---AutoCAD2023 | Configuration Version AutoCAD 2023 | false
---AutoCAD2022 | Configuration Version AutoCAD 2022 | false
---AutoCAD2021 | Configuration Version AutoCAD 2021 | false
---AutoCAD2020 | Configuration Version AutoCAD 2020 | false
---AutoCAD2019 | Configuration Version AutoCAD 2019 | false
+--TargetFrameworks | Target Frameworks for Revit versions | 2027,2026,2025,2024,2023,2022,2021
 
 ## ProjectTemplates
 The `ProjectTemplates` are installed automatically in `Visual Studio 2026` when [ricaun.AppLoader](https://ricaun.com/AppLoader/) plugin installs the package.

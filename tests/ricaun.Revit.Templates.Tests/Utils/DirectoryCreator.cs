@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace ricaun.Revit.Templates.Tests.Utils;
@@ -17,6 +18,13 @@ public class DirectoryCreator : IDisposable
             System.IO.Directory.Delete(createdDirectory, true);
         System.IO.Directory.CreateDirectory(createdDirectory);
         System.IO.Directory.SetCurrentDirectory(createdDirectory);
+    }
+
+    public string[] GetOutputFiles(string projectName)
+    {
+        return System.IO.Directory.GetFiles(Directory, $"{projectName}*.dll", SearchOption.AllDirectories)
+            .Where(f => !f.Contains("\\obj\\"))
+            .ToArray();
     }
 
     public void Dispose()
