@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.0-rc.6</Version>
+    <Version>1.0.0-rc.10</Version>
     <VersionSdk>$(Version)</VersionSdk>
   </PropertyGroup>
 </Project>

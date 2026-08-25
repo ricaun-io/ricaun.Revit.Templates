@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0-rc.5">
+<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0-rc.10">
 
   <PropertyGroup>
     <TargetFrameworks>2027;2026;2025;2024;2023;2022;2021;2020;2019</TargetFrameworks>
