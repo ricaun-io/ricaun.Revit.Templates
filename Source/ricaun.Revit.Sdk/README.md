@@ -124,7 +124,7 @@ The `TargetFrameworks` defaults to the following values depending on the `RevitV
 
 | RevitVersion | TargetFramework |
 |--------------|-----------------|
-| 2017-2019 | net46 |
+| 2017-2018 | net46 |
 | 2019-2020 | net47 |
 | 2021-2024 | net48 |
 | 2025-2026 | net8.0-windows |
