@@ -9,6 +9,7 @@
     <BaseOutputPath Condition="'$(BaseOutputPath)' == ''">bin\</BaseOutputPath>
     <ConfigurationOutput>Release</ConfigurationOutput>
     <ConfigurationOutput Condition="$(Configuration.Contains('Debug'))">Debug</ConfigurationOutput>
+    <DefineConstants>$(DefineConstants);$([System.String]::Copy('$(ConfigurationOutput)').ToUpperInvariant())</DefineConstants>
     <OutputPath Condition="'$(OutputPath)' == ''">$([MSBuild]::EnsureTrailingSlash($(BaseOutputPath)))$(ConfigurationOutput)\</OutputPath>
     <OutputPath>$([MSBuild]::EnsureTrailingSlash($(OutputPath)))$(AutoCADVersion)\</OutputPath>
   </PropertyGroup>
