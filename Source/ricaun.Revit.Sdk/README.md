@@ -41,7 +41,7 @@ The `Sdk` support `Configurations` for Revit versions and the `TargetFramework` 
 
 **The `RevitVersion` is set based in the `Configuration` number.**
 
-The `OutputPath` is automatically set between `bin\Debug\<RevitVersion>` and `bin\Release\<RevitVersion>` depending on the `Configuration` name.
+The `OutputPath` is automatically set between `bin\Debug\<RevitVersion>` and `bin\Release\<RevitVersion>` depending on the `Configuration` name, and the `DefineConstants` is set between `DEBUG` or `RELEASE`.
 
 ### AppendRevitVersionToOutputPath
 

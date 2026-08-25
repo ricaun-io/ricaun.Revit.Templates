@@ -41,7 +41,7 @@ The `Sdk` support `Configurations` for AutoCAD versions and the `TargetFramework
 
 **The `AutoCADVersion` is set based in the `Configuration` number.**
 
-The `OutputPath` is automatically set between `bin\Debug\<AutoCADVersion>` and `bin\Release\<AutoCADVersion>` depending on the `Configuration` name.
+The `OutputPath` is automatically set between `bin\Debug\<AutoCADVersion>` and `bin\Release\<AutoCADVersion>` depending on the `Configuration` name, and the `DefineConstants` is set between `DEBUG` or `RELEASE`.
 
 ### AppendAutoCADVersionToOutputPath
 
