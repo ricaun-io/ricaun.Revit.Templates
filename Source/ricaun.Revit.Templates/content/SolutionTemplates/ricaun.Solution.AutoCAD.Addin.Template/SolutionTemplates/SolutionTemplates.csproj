@@ -1,18 +1,18 @@
 <Project Sdk="ricaun.AutoCAD.Sdk/1.0.0-rc">
 
   <PropertyGroup>
+    <AppLoader>Debug</AppLoader>
+    <UseWPF>true</UseWPF>
+    <TargetFrameworks>TargetFrameworksReplace</TargetFrameworks>
+  </PropertyGroup>
+  
+  <PropertyGroup>
     <PackageId>SolutionTemplates</PackageId>
     <Company>CompanyReplace</Company>
     <Authors>AuthorsReplace</Authors>
     <Description>DescriptionReplace</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <AppLoader>Debug</AppLoader>
-    <UseWPF>true</UseWPF>
-    <TargetFrameworks>TargetFrameworksReplace</TargetFrameworks>
-  </PropertyGroup>
-  
   <ItemGroup>
     <PackageReference Include="ricaun.AutoCAD.UI" Version="*"/>
   </ItemGroup>
