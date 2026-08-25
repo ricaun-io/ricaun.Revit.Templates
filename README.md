@@ -11,7 +11,7 @@ RevitAddin and AutoCADAddin Templates and ItemTemplates for C# Applications.
 [![Revit.Sdk](https://img.shields.io/nuget/v/ricaun.Revit.Sdk?logo=nuget&label=Revit.Sdk&color=blue)](https://www.nuget.org/packages/ricaun.Revit.Sdk)
 [![AutoCAD.Sdk](https://img.shields.io/nuget/v/ricaun.AutoCAD.Sdk?logo=nuget&label=AutoCAD.Sdk&color=blue)](https://www.nuget.org/packages/ricaun.AutoCAD.Sdk)
 
-[![Create a new project](./source/ricaun.Revit.Templates/Resources/create.png)](https://github.com/ricaun-io/ricaun.Revit.Templates)
+[![Create a new project](./Source/ricaun.Revit.Templates/Resources/create.png)](https://github.com/ricaun-io/ricaun.Revit.Templates)
 
 ## Installation
 
