@@ -1,0 +1,47 @@
+<Project>
+
+  <PropertyGroup>
+    <RevitVersionMinimal Condition="'$(RevitVersionMinimal)' == ''">2019</RevitVersionMinimal>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SupportedRevitVersion Include="2015" />
+    <SupportedRevitVersion Include="2016" />
+    <SupportedRevitVersion Include="2017" />
+    <SupportedRevitVersion Include="2018" />
+    <SupportedRevitVersion Include="2019" />
+    <SupportedRevitVersion Include="2020" />
+    <SupportedRevitVersion Include="2021" />
+    <SupportedRevitVersion Include="2022" />
+    <SupportedRevitVersion Include="2023" />
+    <SupportedRevitVersion Include="2024" />
+    <SupportedRevitVersion Include="2025" />
+    <SupportedRevitVersion Include="2026" />
+    <SupportedRevitVersion Include="2027" />
+    <SupportedRevitVersion Include="2028" />
+    <SupportedRevitVersion Include="2029" />
+    <SupportedRevitVersion Include="2030" />
+    <SupportedRevitVersion Include="2031" />
+    <SupportedRevitVersion Include="2032" />
+  </ItemGroup>
+
+  <!-- Add RevitVersion and OR_GREATER defines -->
+  <Target Name="GenerateRevitVersionDefineConstants" AfterTargets="AddImplicitDefineConstants" Condition="'$(RevitVersion)' != ''">
+
+    <ItemGroup>
+      <_SupportedRevitVersions Include="@(SupportedRevitVersion->'%(Identity)'->TrimStart('REVIT'))" />
+      <_CompatibleRevitVersions Include="@(_SupportedRevitVersions)" Condition=" %(Identity) != '' and $([MSBuild]::VersionLessThanOrEquals(%(Identity), $(RevitVersion))) and $([MSBuild]::VersionGreaterThanOrEquals(%(Identity), $(RevitVersionMinimal)))" />
+
+      <_RevitDefineConstant Include="@(_CompatibleRevitVersions->'REVIT%(Identity)_OR_GREATER'->Replace('.', '_'))" />
+      <_RevitDefineConstant Include="REVIT$(RevitVersion.Replace('.', '_'))" />
+      <_RevitDefineConstant Include="REVIT" />
+    </ItemGroup>
+
+    <Message Text="[$(TargetFramework)] RevitDefineConstant: @(_RevitDefineConstant -> '%(Identity)', ';')" Importance="Low" />
+
+    <PropertyGroup>
+      <DefineConstants>$(DefineConstants);@(_RevitDefineConstant -> '%(Identity)', ';')</DefineConstants>
+    </PropertyGroup>
+  </Target>
+
+</Project>

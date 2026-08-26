@@ -1,0 +1,44 @@
+<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0">
+
+  <PropertyGroup>
+    <AppLoader>Debug</AppLoader>
+    <UseWPF>true</UseWPF>
+    <TargetFrameworks>TargetFrameworksReplace</TargetFrameworks>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <PackageId>SolutionTemplates</PackageId>
+    <Company>CompanyReplace</Company>
+    <Authors>AuthorsReplace</Authors>
+    <Description>DescriptionReplace</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ricaun.AutoCAD.UI" Version="*"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Cube-Grey-Light.tiff" />
+    <Resource Include="Resources\Cube-Grey-Dark.tiff" />
+  </ItemGroup>
+
+  <!-- Fody -->
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="3.*" IncludeAssets="build; compile" PrivateAssets="all" />
+  </ItemGroup>
+  <PropertyGroup>
+    <WeaverConfiguration>
+      <Weavers>
+        <PropertyChanged />
+      </Weavers>
+    </WeaverConfiguration>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Chuongmep.Acad.Api.acmgd" Version="$(AutoCADVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Chuongmep.Acad.Api.acdbmgd" Version="$(AutoCADVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Chuongmep.Acad.Api.accoremgd" Version="$(AutoCADVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="Chuongmep.Acad.Api.AdWindows" Version="$(AutoCADVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

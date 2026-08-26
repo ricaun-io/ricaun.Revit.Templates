@@ -1,0 +1,21 @@
+<Project>
+
+  <Target Name="UpdateSdkVersion" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <FileItems Include=".\..\..\**\*.csproj" />
+      <FileItems Update="@(FileItems)">
+        <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
+        <UpdatedContent>$([System.Text.RegularExpressions.Regex]::Replace($([System.IO.File]::ReadAllText('%(FullPath)')), '.Sdk/[^"]*"&gt;', '.Sdk/$(Version)"&gt;'))</UpdatedContent>
+      </FileItems>
+      <FileItems Update="@(FileItems)">
+        <Changed Condition="'%(ProjectFileContent)' != '%(UpdatedContent)'">true</Changed>
+      </FileItems>
+    </ItemGroup>
+
+    <Message Text="$(MSBuildProjectName) -> UpdateSdkVersion [$(Version)]: %(FileItems.Identity)" Importance="High" Condition="'%(FileItems.Changed)' == 'true'" />
+
+    <WriteLinesToFile Condition="'%(FileItems.Changed)' == 'true'" File="%(FileItems.FullPath)" Lines="%(FileItems.UpdatedContent)" Overwrite="true" />
+
+  </Target>
+  
+</Project>

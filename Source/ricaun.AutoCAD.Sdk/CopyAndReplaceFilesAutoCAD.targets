@@ -1,0 +1,50 @@
+<Project>
+
+  <Target Name="CopyAndReplaceFilesSdk" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <CopyAndReplaceFilesDir>$(ProjectDir)Sdk</CopyAndReplaceFilesDir>
+      <CopyFilesDir>$(ProjectDir)..\ricaun.Revit.Sdk\Sdk</CopyFilesDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <FilesToCopy Include="$(CopyFilesDir)\*.targets" />
+      <FilesToCopy Include="$(CopyFilesDir)\*.props" />
+      <FilesToCopy Update="@(FilesToCopy)">
+        <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
+        <DestinationFile>$(CopyAndReplaceFilesDir)\$([System.String]::Copy('%(Filename)').Replace('Revit', 'AutoCAD'))%(Extension)</DestinationFile>
+        <FileContent>$([System.IO.File]::ReadAllText('%(FullPath)').Replace('Revit.exe','acad.exe').Replace('Revit', 'AutoCAD').Replace('REVIT', 'AUTOCAD'))</FileContent>
+      </FilesToCopy>
+    </ItemGroup>
+
+    <MakeDir Directories="$(CopyAndReplaceFilesDir)" />
+    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopy.Filename)%(FilesToCopy.Extension) -&gt; %(FilesToCopy.DestinationFile)" Importance="Low" />
+
+    <WriteLinesToFile
+      File="%(FilesToCopy.DestinationFile)"
+      Lines="%(FilesToCopy.FileContent)"
+      Overwrite="true" />
+  </Target>
+
+  <Target Name="CopyAndReplaceFilesREADME" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <CopyAndReplaceFilesDir>$(ProjectDir)</CopyAndReplaceFilesDir>
+      <CopyFilesDir>$(ProjectDir)..\ricaun.Revit.Sdk\</CopyFilesDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <FilesToCopyReadme Include="$(CopyFilesDir)\README.md" />
+      <FilesToCopyReadme Update="@(FilesToCopyReadme)">
+        <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
+        <DestinationFile>$(CopyAndReplaceFilesDir)\$([System.String]::Copy('%(Filename)').Replace('Revit', 'AutoCAD'))%(Extension)</DestinationFile>
+        <FileContent>$([System.IO.File]::ReadAllText('%(FullPath)').Replace('Revit_All_Main_Versions_API_x64','Chuongmep.Acad.Api.acmgd').Replace('Revit', 'AutoCAD').Replace('REVIT', 'AUTOCAD'))</FileContent>
+      </FilesToCopyReadme>
+    </ItemGroup>
+
+    <MakeDir Directories="$(CopyAndReplaceFilesDir)" />
+    <Message Text="$(MSBuildProjectName) -&gt; CopyAndReplaceFiles: %(FilesToCopyReadme.Filename)%(FilesToCopyReadme.Extension) -&gt; %(FilesToCopyReadme.DestinationFile)" Importance="Low" />
+
+    <WriteLinesToFile
+      File="%(FilesToCopyReadme.DestinationFile)"
+      Lines="%(FilesToCopyReadme.FileContent)"
+      Overwrite="true" />
+  </Target>
+  
+</Project>

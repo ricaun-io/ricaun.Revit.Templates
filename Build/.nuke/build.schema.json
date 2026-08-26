@@ -27,13 +27,16 @@
         "Build",
         "Clean",
         "Compile",
+        "CompileAfter",
+        "CompileBefore",
         "GitPreRelease",
         "GitRelease",
         "Pack",
         "PrePack",
         "Release",
         "Sign",
-        "TemplateInstaller"
+        "TemplateInstaller",
+        "Test"
       ]
     },
     "Verbosity": {
@@ -134,10 +137,16 @@
             "type": "string"
           }
         },
+        "ReleaseCompile": {
+          "type": "boolean"
+        },
         "ReleaseFolder": {
           "type": "string"
         },
         "ReleaseNameVersion": {
+          "type": "boolean"
+        },
+        "SignCompile": {
           "type": "boolean"
         },
         "SignFile": {
@@ -151,6 +160,15 @@
         "Solution": {
           "type": "string",
           "description": "Path to a solution file that is automatically loaded"
+        },
+        "TestBuildStopWhenFailed": {
+          "type": "boolean"
+        },
+        "TestProjectName": {
+          "type": "string"
+        },
+        "TestResults": {
+          "type": "boolean"
         },
         "UnlistNuGet": {
           "type": "boolean"

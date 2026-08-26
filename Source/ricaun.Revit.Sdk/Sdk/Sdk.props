@@ -1,0 +1,6 @@
+<Project>
+  
+  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
+  <Import Project="ricaun.Revit.Sdk.*.props"/>
+
+</Project>

@@ -1,0 +1,135 @@
+# ricaun.AutoCAD.Sdk
+
+Sdk for AutoCAD API development to support multiple AutoCAD versions in a single project.
+
+## Features
+
+* Automatic `TargetFrameworks` using [TFM-Aliases](https://github.com/NuGet/Home/blob/dev/accepted/2025/Multiple-Equivalent-Framework-Support-TFM-As-Aliases.md) for AutoCAD versions. 
+* Automatic `Defines` using [or-greater-defines](https://github.com/dotnet/designs/blob/main/accepted/2020/or-greater-defines/or-greater-defines.md) for AutoCAD versions.
+
+## Installation
+
+To install the SDK, you need to specify in the `Sdk` attribute of the `Project` element in your project file.
+```xml
+<Project Sdk="ricaun.AutoCAD.Sdk/<version>">
+</Project>
+```
+
+## TargetFrameworks
+
+The `Sdk` support the following `TargetFrameworks` for AutoCAD versions:
+```xml
+<Project Sdk="ricaun.AutoCAD.Sdk/<version>">
+  <PropertyGroup>
+    <TargetFrameworks>2027;2026;2025;2024;2023;2022;2021</TargetFrameworks>
+  </PropertyGroup>
+</Project>
+```
+
+**The `AutoCADVersion` is set based in the `TargetFrameworks` number.**
+
+## Configurations
+
+The `Sdk` support `Configurations` for AutoCAD versions and the `TargetFramework` is automatically set by the `Sdk` depending on the `Configuration`:
+```xml
+<Project Sdk="ricaun.AutoCAD.Sdk/<version>">
+  <PropertyGroup>
+    <Configuration>2027;Debug 2027;2026;Debug 2026;2025;Debug 2025;2024;Debug 2024</Configuration>
+  </PropertyGroup>
+</Project>
+```
+
+**The `AutoCADVersion` is set based in the `Configuration` number.**
+
+The `OutputPath` is automatically set between `bin\Debug\<AutoCADVersion>` and `bin\Release\<AutoCADVersion>` depending on the `Configuration` name, and the `DefineConstants` is set between `DEBUG` or `RELEASE`.
+
+### AppendAutoCADVersionToOutputPath
+
+The property `AppendAutoCADVersionToOutputPath` is automatically set to `true` when using the `Configuration` property. You can override this behavior by setting it to `false` in your project file.
+
+## AutoCADVersion
+
+The property group `AutoCADVersion` is set to the AutoCAD version depending on the `TargetFrameworks` or `Configurations`.
+```
+<ItemGroup>
+  <PackageReference Include="Chuongmep.Acad.Api.acmgd" Version="$(AutoCADVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+</ItemGroup>
+```
+
+### IsAutoCADVersion
+
+These properties `IsAutoCADVersionNetCore` and `IsAutoCADVersionNetFramework` are set depending on whether the AutoCAD version is targeting .NET Core or .NET Framework.
+
+```
+<PropertyGroup Condition="$(IsAutoCADVersionNetFramework)">
+  <Reference Include="System.IO.Compression" />
+</PropertyGroup>
+```
+
+### Defines Constants
+
+The defines `AUTOCAD` and `AUTOCAD<version>` are set depending on the AutoCAD version.
+
+The `AUTOCAD<version>_OR_GREATER` defines are set for the AutoCAD version and all greater versions.
+
+| AutoCADVersion | Define | Define with or-greater |
+|--------------|--------|------------------------|
+| 2019 | `AUTOCAD`, `AUTOCAD2019` | `AUTOCAD2019_OR_GREATER` |
+| 2020 | `AUTOCAD`, `AUTOCAD2020` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER` |
+| 2021 | `AUTOCAD`, `AUTOCAD2021` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER` |
+| 2022 | `AUTOCAD`, `AUTOCAD2022` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER` |
+| 2023 | `AUTOCAD`, `AUTOCAD2023` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER`, `AUTOCAD2023_OR_GREATER` |
+| 2024 | `AUTOCAD`, `AUTOCAD2024` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER`, `AUTOCAD2023_OR_GREATER`, `AUTOCAD2024_OR_GREATER` |
+| 2025 | `AUTOCAD`, `AUTOCAD2025` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER`, `AUTOCAD2023_OR_GREATER`, `AUTOCAD2024_OR_GREATER`, `AUTOCAD2025_OR_GREATER` |
+| 2026 | `AUTOCAD`, `AUTOCAD2026` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER`, `AUTOCAD2023_OR_GREATER`, `AUTOCAD2024_OR_GREATER`, `AUTOCAD2025_OR_GREATER`, `AUTOCAD2026_OR_GREATER` |
+| 2027 | `AUTOCAD`, `AUTOCAD2027` | `AUTOCAD2019_OR_GREATER`, `AUTOCAD2020_OR_GREATER`, `AUTOCAD2021_OR_GREATER`, `AUTOCAD2022_OR_GREATER`, `AUTOCAD2023_OR_GREATER`, `AUTOCAD2024_OR_GREATER`, `AUTOCAD2025_OR_GREATER`, `AUTOCAD2026_OR_GREATER`, `AUTOCAD2027_OR_GREATER` |
+
+By default the lowest version is set to 2019, the `AutoCADVersionMinimal` property can be set to a different version to change the lowest version for the `AUTOCAD<version>_OR_GREATER` defines:
+
+```xml
+<PropertyGroup>
+  <AutoCADVersionMinimal>2019</AutoCADVersionMinimal>
+</PropertyGroup>
+```
+
+## AppLoader
+
+The property `AppLoader` is used change how the `AssemblyName` is generated. 
+* The `Version` keywork is used to generate the `AssemblyName` with the assembly version.
+* The `Debug` keyword is used to generate the `AssemblyName` with a timestamp number. (Only available with `Debug` configuration.)
+```xml
+<PropertyGroup>
+  <AppLoader>Debug;Version</AppLoader>
+</PropertyGroup>
+```
+This property is used work with the plugin [ricaun.AppLoader](https://ricaun.com/AppLoader/).
+
+## Sdk Properties
+
+The `Sdk` sets the following properties automatically:
+
+| Property | Value | Description |
+| -------- | ----- | ----------- |
+| TargetFramework | *dynamic* | Automatically sets the `TargetFramework` based on the `AutoCADVersion` property. |
+| LangVersion | latest | Sets the latest C# language version |
+| PlatformTarget | AnyCPU | The platform target any CPU |
+| ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch | None | Ignore the warning for assembly architecture mismatch |
+| Optimize | *dynamic* | Enabled for `Release` configurations. |
+| DebugSymbols | *dynamic* | Enabled for `Debug` configurations. |
+| DebugType | *dynamic* | `portable` for `Debug`, `none` for `Release` configurations. |
+
+### TargetFrameworks defaults values
+
+The `TargetFrameworks` defaults to the following values depending on the `AutoCADVersion` property:
+
+| AutoCADVersion | TargetFramework |
+|--------------|-----------------|
+| 2017-2018 | net46 |
+| 2019-2020 | net47 |
+| 2021-2024 | net48 |
+| 2025-2026 | net8.0-windows |
+| 2027-2028 | net10.0-windows |
+| 2029-2030 | net12.0-windows |
+| 2031-2032 | net14.0-windows |
+
+---

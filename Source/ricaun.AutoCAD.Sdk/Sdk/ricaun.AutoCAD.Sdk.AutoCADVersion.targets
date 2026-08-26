@@ -1,0 +1,32 @@
+<Project>
+
+  <!-- AppendAutoCADVersionToOutputPath -->
+  <PropertyGroup>
+    <AppendAutoCADVersionToOutputPath Condition="'$(AppendAutoCADVersionToOutputPath)' == '' AND '$(AppendTargetFrameworkToOutputPath)' == 'false'">true</AppendAutoCADVersionToOutputPath>
+    <AppendAutoCADVersionToOutputPath Condition="'$(AppendAutoCADVersionToOutputPath)' == ''">false</AppendAutoCADVersionToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(AppendAutoCADVersionToOutputPath)' == 'true' AND '$(AutoCADVersion)' != '' ">
+    <BaseOutputPath Condition="'$(BaseOutputPath)' == ''">bin\</BaseOutputPath>
+    <ConfigurationOutput>Release</ConfigurationOutput>
+    <ConfigurationOutput Condition="$(Configuration.Contains('Debug'))">Debug</ConfigurationOutput>
+    <DefineConstants>$(DefineConstants);$([System.String]::Copy('$(ConfigurationOutput)').ToUpperInvariant())</DefineConstants>
+    <OutputPath Condition="'$(OutputPath)' == ''">$([MSBuild]::EnsureTrailingSlash($(BaseOutputPath)))$(ConfigurationOutput)\</OutputPath>
+    <OutputPath>$([MSBuild]::EnsureTrailingSlash($(OutputPath)))$(AutoCADVersion)\</OutputPath>
+  </PropertyGroup>
+
+  <!-- Net Core -->
+  <PropertyGroup Condition="$(IsAutoCADVersionNetCore)">
+    <EnableDynamicLoading Condition=" '$(EnableDynamicLoading)' == ''">true</EnableDynamicLoading>
+    <GenerateRuntimeConfigurationFiles Condition=" '$(GenerateRuntimeConfigurationFiles)' == ''">true</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile Condition=" '$(GenerateDependencyFile)' == ''">false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <!-- DebugAutoCADVersion -->
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(AutoCADVersion)' != ''">
+    <DebugAutoCADVersion Condition=" '$(DebugAutoCADVersion)' == ''">$(AutoCADVersion)</DebugAutoCADVersion>
+    <AutoCADStartProgram>$(ProgramFiles)\Autodesk\AutoCAD $(DebugAutoCADVersion)\acad.exe</AutoCADStartProgram>
+    <StartAction Condition=" '$(StartAction)' == '' AND Exists('$(AutoCADStartProgram)')">Program</StartAction>
+    <StartProgram Condition=" '$(StartProgram)' == '' AND Exists('$(AutoCADStartProgram)')">$(AutoCADStartProgram)</StartProgram>
+  </PropertyGroup>
+
+</Project>

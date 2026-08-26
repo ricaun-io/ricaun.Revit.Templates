@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "ricaun",
+  "name": "Project Autodesk RevitTest Template",
+  "shortName": "ricaun-revittest-project",
+  "identity": "ricaun.Project.RevitTest.Template",
+  "defaultName": "RevitTest.Tests",
+  "sourceName": "ProjectTemplates",
+  "description": "Template for Revit C# .NET test project",
+  "classifications": [ "ricaun", "Revit", "Library", "Test" ],
+  "tags": {
+    "platform": ".NET",
+    "language": "C#",
+    "type": "project"
+  },
+  "guids": [
+    "00000000-0000-0000-0000-000000000000",
+    "11111111-1111-1111-1111-111111111111",
+    "22222222-2222-2222-2222-222222222222",
+    "33333333-3333-3333-3333-333333333333",
+    "44444444-4444-4444-4444-444444444444",
+    "99999999-9999-9999-9999-999999999999"
+  ],
+  "symbols": {
+    "TargetFrameworks": {
+      "type": "parameter",
+      "description": "Target Frameworks for Revit versions",
+      "datatype": "choice",
+      "allowMultipleValues": true,
+      "defaultValue": "2027|2026|2025|2024|2023|2022|2021",
+      "choices": [
+        {
+          "choice": "2027",
+          "description": "Revit 2027 - Target .NET 10.0"
+        },
+        {
+          "choice": "2026",
+          "description": "Revit 2026 - Target .NET 8.0"
+        },
+        {
+          "choice": "2025",
+          "description": "Revit 2025 - Target .NET 8.0"
+        },
+        {
+          "choice": "2024",
+          "description": "Revit 2024 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2023",
+          "description": "Revit 2023 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2022",
+          "description": "Revit 2022 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2021",
+          "description": "Revit 2021 - Target .NET Framework 4.8"
+        },
+        {
+          "choice": "2020",
+          "description": "Revit 2020 - Target .NET Framework 4.7"
+        },
+        {
+          "choice": "2019",
+          "description": "Revit 2019 - Target .NET Framework 4.7"
+        }
+      ]
+    },
+    "TargetFrameworksMsBuild": {
+      "type": "derived",
+      "valueSource": "TargetFrameworks",
+      "valueTransform": "ReplaceWithSemicolon",
+      "replaces": "TargetFrameworksReplace"
+    }
+  },
+  "forms": {
+    "ReplaceWithSemicolon": {
+      "identifier": "replace",
+      "pattern": "\\|",
+      "replacement": ";"
+    }
+  }
+}

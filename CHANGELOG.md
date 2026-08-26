@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] / 2026-08-15 - 2026-08-25
+### Features
+- Support `ricaun.Revit.Sdk` with `TargetFramework` and `Configurations` as Revit version. (Fix: #30)
+- Support `ricaun.AutoCAD.Sdk` with `TargetFramework` and `Configurations` as AutoCAD version.(Fix: #30)
+### Updates
+- Create `ricaun.Revit.Sdk.Sample` to use sdk `ricaun.Revit.Sdk`.
+- Create `ricaun.AutoCAD.Sdk.Sample` to use sdk `ricaun.AutoCAD.Sdk`.
+- Create `ricaun.Revit.Sdk.Sample.Tests` to use sdk `ricaun.Revit.Sdk` and `ricaun.Revit.Sdk.Sample` reference.
+- Update `SolutionTemplates` to have `slnx` file.
+- Update `Templates` to support `TargetFrameworks` option.
+### Tests
+- Create `ricaun.Revit.Templates.Tests` to install and build solution/project from templates.
+
 ## [0.11.1] / 2026-05-15
 ### Updates
 - Update `README` solution with `AppBundleTool` installation option.
@@ -172,6 +185,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Solution `ricaun-revit-addin-23-17-sln`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.0.0]: ../../compare/0.11.1...1.0.0
 [0.11.1]: ../../compare/0.11.0...0.11.1
 [0.11.0]: ../../compare/0.10.3...0.11.0
 [0.10.3]: ../../compare/0.10.2...0.10.3

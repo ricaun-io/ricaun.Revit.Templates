@@ -1,0 +1,30 @@
+# SolutionTemplates
+
+[![AutoCAD LastTargetFrameworkReplace](https://img.shields.io/badge/AutoCAD-LastTargetFrameworkReplace+-blue.svg)](../..)
+[![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](../..)
+[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
+<!--#if (License)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+#endif-->
+[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+
+This project was generated using the [ricaun.Revit.Templates](https://github.com/ricaun-io/ricaun.Revit.Templates).
+
+## Installation
+
+* Install `bundle` using the installer [SolutionTemplates.exe](../../releases/latest/download/SolutionTemplates.zip)
+
+Or using [AppBundleTool](https://github.com/ricaun-io/ricaun.AppBundleTool) with the following command: 
+```shell
+AppBundleTool -a ../../releases/latest/download/SolutionTemplates.bundle.zip -i
+```
+
+<!--#if (License)
+## License
+
+This project is [licensed](LICENSE) under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
+
+#endif-->
+---
+
+Do you like this project? Please [star this project on GitHub](../../stargazers)!

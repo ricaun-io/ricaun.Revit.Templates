@@ -1,0 +1,32 @@
+<Project>
+
+  <!-- AppendRevitVersionToOutputPath -->
+  <PropertyGroup>
+    <AppendRevitVersionToOutputPath Condition="'$(AppendRevitVersionToOutputPath)' == '' AND '$(AppendTargetFrameworkToOutputPath)' == 'false'">true</AppendRevitVersionToOutputPath>
+    <AppendRevitVersionToOutputPath Condition="'$(AppendRevitVersionToOutputPath)' == ''">false</AppendRevitVersionToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(AppendRevitVersionToOutputPath)' == 'true' AND '$(RevitVersion)' != '' ">
+    <BaseOutputPath Condition="'$(BaseOutputPath)' == ''">bin\</BaseOutputPath>
+    <ConfigurationOutput>Release</ConfigurationOutput>
+    <ConfigurationOutput Condition="$(Configuration.Contains('Debug'))">Debug</ConfigurationOutput>
+    <DefineConstants>$(DefineConstants);$([System.String]::Copy('$(ConfigurationOutput)').ToUpperInvariant())</DefineConstants>
+    <OutputPath Condition="'$(OutputPath)' == ''">$([MSBuild]::EnsureTrailingSlash($(BaseOutputPath)))$(ConfigurationOutput)\</OutputPath>
+    <OutputPath>$([MSBuild]::EnsureTrailingSlash($(OutputPath)))$(RevitVersion)\</OutputPath>
+  </PropertyGroup>
+
+  <!-- Net Core -->
+  <PropertyGroup Condition="$(IsRevitVersionNetCore)">
+    <EnableDynamicLoading Condition=" '$(EnableDynamicLoading)' == ''">true</EnableDynamicLoading>
+    <GenerateRuntimeConfigurationFiles Condition=" '$(GenerateRuntimeConfigurationFiles)' == ''">true</GenerateRuntimeConfigurationFiles>
+    <GenerateDependencyFile Condition=" '$(GenerateDependencyFile)' == ''">false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <!-- DebugRevitVersion -->
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(RevitVersion)' != ''">
+    <DebugRevitVersion Condition=" '$(DebugRevitVersion)' == ''">$(RevitVersion)</DebugRevitVersion>
+    <RevitStartProgram>$(ProgramFiles)\Autodesk\Revit $(DebugRevitVersion)\Revit.exe</RevitStartProgram>
+    <StartAction Condition=" '$(StartAction)' == '' AND Exists('$(RevitStartProgram)')">Program</StartAction>
+    <StartProgram Condition=" '$(StartProgram)' == '' AND Exists('$(RevitStartProgram)')">$(RevitStartProgram)</StartProgram>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json.schemastore.org/ide.host",
+  "icon": "RevitPROJ.png",
+  "symbolInfo": [
+    {
+      "id": "Authors"
+    },
+    {
+      "id": "Company"
+    },
+    {
+      "id": "License"
+    },
+    {
+      "id": "Description"
+    },
+    {
+      "id": "TargetFrameworks"
+    }
+  ]
+}

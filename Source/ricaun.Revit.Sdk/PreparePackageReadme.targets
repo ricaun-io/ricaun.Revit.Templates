@@ -1,0 +1,32 @@
+<Project>
+
+  <PropertyGroup>
+    <ReplaceDotSlash>https://raw.githubusercontent.com/ricaun-io/ricaun.Revit.Templates/refs/tags/$(Version)/</ReplaceDotSlash>
+    <ReplaceSlashVersion>/$(Version)</ReplaceSlashVersion>
+  </PropertyGroup>
+
+  <Target Name="PreparePackageReadme" BeforeTargets="BeforeBuild" Condition="'$(PackageReadmeFileSource)' != ''">
+    <PropertyGroup>
+      <PackageReadmePath>$(IntermediateOutputPath)README.md</PackageReadmePath>
+      <ReadmeContentSource>$([System.IO.File]::ReadAllText('$(PackageReadmeFileSource)'))</ReadmeContentSource>
+      <ReadmeContent>$(ReadmeContentSource)</ReadmeContent>
+      <ReadmeContent>$([System.String]::Copy('$(ReadmeContent)').Replace('./', '$(ReplaceDotSlash)'))</ReadmeContent>
+      <ReadmeContent>$([System.String]::Copy('$(ReadmeContent)').Replace('/&lt;version&gt;', '$(ReplaceSlashVersion)'))</ReadmeContent>
+      <ReadmeChanged Condition="'$(ReadmeContentSource)' != '$(ReadmeContent)'">true</ReadmeChanged>
+    </PropertyGroup>
+
+    <Message Text="$(MSBuildProjectName) -> PreparePackageReadme [$(Version)]: $(PackageReadmeFileSource)" Importance="High" Condition="'$(ReadmeChanged)' == 'true'" />
+
+    <WriteLinesToFile
+        File="$(PackageReadmePath)"
+        Lines="$(ReadmeContent)"
+        Overwrite="true" />
+
+    <ItemGroup>
+      <None Include="$(PackageReadmePath)"
+            Pack="true"
+            PackagePath="README.md" />
+    </ItemGroup>
+  </Target>
+
+</Project>

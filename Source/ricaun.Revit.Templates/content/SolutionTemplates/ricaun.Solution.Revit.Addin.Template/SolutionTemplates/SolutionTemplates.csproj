@@ -1,0 +1,42 @@
+<Project Sdk="ricaun.Revit.Sdk/1.0.0">
+
+  <PropertyGroup>
+    <AppLoader>Debug</AppLoader>
+    <UseWPF>true</UseWPF>
+    <TargetFrameworks>TargetFrameworksReplace</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>SolutionTemplates</PackageId>
+    <Company>CompanyReplace</Company>
+    <Authors>AuthorsReplace</Authors>
+    <Description>DescriptionReplace</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ricaun.Revit.DB" Version="*"/>
+    <PackageReference Include="ricaun.Revit.UI" Version="*"/>
+    <PackageReference Include="ricaun.Revit.Mvvm" Version="*"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Revit.ico" />
+  </ItemGroup>
+
+  <!-- Fody -->
+  <ItemGroup>
+    <PackageReference Include="PropertyChanged.Fody" Version="3.*" IncludeAssets="build; compile" PrivateAssets="all" />
+  </ItemGroup>
+  <PropertyGroup>
+    <WeaverConfiguration>
+      <Weavers>
+        <PropertyChanged />
+      </Weavers>
+    </WeaverConfiguration>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

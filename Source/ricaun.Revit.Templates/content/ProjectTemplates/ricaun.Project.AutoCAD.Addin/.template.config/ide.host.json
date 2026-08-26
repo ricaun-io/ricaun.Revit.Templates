@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json.schemastore.org/ide.host",
+  "icon": "AutoCADPROJ.png",
+  "symbolInfo": [
+    {
+      "id": "Authors"
+    },
+    {
+      "id": "Company"
+    },
+    {
+      "id": "Description"
+    },
+    {
+      "id": "TargetFrameworks"
+    }
+  ]
+}

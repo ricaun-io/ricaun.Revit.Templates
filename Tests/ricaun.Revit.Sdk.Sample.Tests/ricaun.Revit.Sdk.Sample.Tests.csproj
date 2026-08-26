@@ -1,0 +1,17 @@
+<Project Sdk="ricaun.Revit.Sdk/1.0.0">
+
+  <PropertyGroup>
+    <TargetFrameworks>2027;2026;2025;2024;2023;2022;2021;2020;2019</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\samples\ricaun.Revit.Sdk.Sample\ricaun.Revit.Sdk.Sample.csproj" />
+  </ItemGroup>
+
+</Project>

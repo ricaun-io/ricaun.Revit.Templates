@@ -1,0 +1,15 @@
+<Project>
+
+  <Target Name="CopyPackFiles" AfterTargets="Pack">
+    <PropertyGroup>
+      <CopyDir>..\..\</CopyDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <CopyItem Include="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" />
+      <DeleteItem Include="$(CopyDir)\$(PackageId)*.nupkg" />
+    </ItemGroup>
+    <Delete Files="@(DeleteItem)" />
+    <Copy SourceFiles="@(CopyItem)" DestinationFolder="$(CopyDir)" />
+  </Target>
+  
+</Project>

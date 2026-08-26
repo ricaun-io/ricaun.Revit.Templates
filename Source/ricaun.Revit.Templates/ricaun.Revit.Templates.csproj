@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ricaun.Revit.Templates</PackageId>
+    <Description>RevitAddin Templates and ItemTemplates for C# Applications.</Description>
+    <PackageTags>autodesk;revit;revitapi</PackageTags>
+    <Product>$(PackageId)</Product>
+  </PropertyGroup>
+
+  <!-- Package Template -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <NoWarn>$(NoWarn);NU5128;NU5111</NoWarn>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <ContentTargetFolders>/</ContentTargetFolders>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>ricaun</Company>
+    <Authors>Luiz Henrique Cassettari</Authors>
+    <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
+    <Copyright>Copyright © $(CopyrightYears) $(Company)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GitHubRepositoryOwner>ricaun-io</GitHubRepositoryOwner>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/$(PackageId)</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />-->
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="Resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\*" />
+    <Content Include="content\**\*" />
+    <Content Include="tools\**\*" CopyToOutputDirectory="Always" />
+    <None Update="*.cmd" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFileSource>..\..\README.md</PackageReadmeFileSource>
+  </PropertyGroup>
+  <Import Project="..\**\PreparePackageReadme.targets" />
+  <Import Project="..\**\CopyPackFiles.targets" />
+
+</Project>

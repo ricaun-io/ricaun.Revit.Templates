@@ -1,0 +1,47 @@
+<Project>
+
+  <PropertyGroup>
+    <AutoCADVersionMinimal Condition="'$(AutoCADVersionMinimal)' == ''">2019</AutoCADVersionMinimal>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SupportedAutoCADVersion Include="2015" />
+    <SupportedAutoCADVersion Include="2016" />
+    <SupportedAutoCADVersion Include="2017" />
+    <SupportedAutoCADVersion Include="2018" />
+    <SupportedAutoCADVersion Include="2019" />
+    <SupportedAutoCADVersion Include="2020" />
+    <SupportedAutoCADVersion Include="2021" />
+    <SupportedAutoCADVersion Include="2022" />
+    <SupportedAutoCADVersion Include="2023" />
+    <SupportedAutoCADVersion Include="2024" />
+    <SupportedAutoCADVersion Include="2025" />
+    <SupportedAutoCADVersion Include="2026" />
+    <SupportedAutoCADVersion Include="2027" />
+    <SupportedAutoCADVersion Include="2028" />
+    <SupportedAutoCADVersion Include="2029" />
+    <SupportedAutoCADVersion Include="2030" />
+    <SupportedAutoCADVersion Include="2031" />
+    <SupportedAutoCADVersion Include="2032" />
+  </ItemGroup>
+
+  <!-- Add AutoCADVersion and OR_GREATER defines -->
+  <Target Name="GenerateAutoCADVersionDefineConstants" AfterTargets="AddImplicitDefineConstants" Condition="'$(AutoCADVersion)' != ''">
+
+    <ItemGroup>
+      <_SupportedAutoCADVersions Include="@(SupportedAutoCADVersion->'%(Identity)'->TrimStart('AUTOCAD'))" />
+      <_CompatibleAutoCADVersions Include="@(_SupportedAutoCADVersions)" Condition=" %(Identity) != '' and $([MSBuild]::VersionLessThanOrEquals(%(Identity), $(AutoCADVersion))) and $([MSBuild]::VersionGreaterThanOrEquals(%(Identity), $(AutoCADVersionMinimal)))" />
+
+      <_AutoCADDefineConstant Include="@(_CompatibleAutoCADVersions->'AUTOCAD%(Identity)_OR_GREATER'->Replace('.', '_'))" />
+      <_AutoCADDefineConstant Include="AUTOCAD$(AutoCADVersion.Replace('.', '_'))" />
+      <_AutoCADDefineConstant Include="AUTOCAD" />
+    </ItemGroup>
+
+    <Message Text="[$(TargetFramework)] AutoCADDefineConstant: @(_AutoCADDefineConstant -> '%(Identity)', ';')" Importance="Low" />
+
+    <PropertyGroup>
+      <DefineConstants>$(DefineConstants);@(_AutoCADDefineConstant -> '%(Identity)', ';')</DefineConstants>
+    </PropertyGroup>
+  </Target>
+
+</Project>

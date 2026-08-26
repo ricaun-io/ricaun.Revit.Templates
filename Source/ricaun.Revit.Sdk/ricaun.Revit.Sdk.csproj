@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ricaun.Revit.Sdk</PackageId>
+    <Version>$(VersionSdk)</Version>
+    <Description>ricaun Sdk for RevitAddin development.</Description>
+    <PackageTags>autodesk;revit;revitapi;msbuild;sdk</PackageTags>
+    <Product>$(PackageId)</Product>
+  </PropertyGroup>
+
+  <!-- MSBuildSdk Template -->
+  <PropertyGroup>
+    <PackageType>MSBuildSdk</PackageType>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Company>ricaun</Company>
+    <Authors>Luiz Henrique Cassettari</Authors>
+    <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>
+    <Copyright>Copyright © $(CopyrightYears) $(Company)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GitHubRepositoryOwner>ricaun-io</GitHubRepositoryOwner>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/$(GitHubRepositoryOwner)/ricaun.Revit.Templates</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/$(GitHubRepositoryOwner)/ricaun.Revit.Templates</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />-->
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\ricaun.Revit.Templates\Resources\icon.png" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Sdk\*" Pack="true" PackagePath="Sdk" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PackageReadmeFileSource>README.md</PackageReadmeFileSource>
+  </PropertyGroup>
+  <Import Project="PreparePackageReadme.targets" />
+  <Import Project="CopyPackFiles.targets" />
+  <Import Project="UpdateSdkVersionCsprojFiles.targets" />
+  <!--.Sdk/1.0.0"> -->
+  
+</Project>
