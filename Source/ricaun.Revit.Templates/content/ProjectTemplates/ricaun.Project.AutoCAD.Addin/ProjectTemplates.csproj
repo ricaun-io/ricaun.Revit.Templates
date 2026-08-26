@@ -1,4 +1,4 @@
-<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0-rc.10">
+<Project Sdk="ricaun.AutoCAD.Sdk/1.0.0">
 
   <PropertyGroup>
     <AppLoader>Debug</AppLoader>
