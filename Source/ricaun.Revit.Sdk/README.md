@@ -52,7 +52,7 @@ The property `AppendRevitVersionToOutputPath` is automatically set to `true` whe
 The property group `RevitVersion` is set to the Revit version depending on the `TargetFrameworks` or `Configurations`.
 ```
 <ItemGroup>
-  <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+  <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
 </ItemGroup>
 ```
 
