@@ -12,12 +12,27 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+  id-token: write
+
 jobs:
   Build:
     name: Build
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Cache packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', 'Directory.Build.props', 'Directory.Packages.props') }}
+          restore-keys: ${{ runner.os }}-nuget-
+
       - name: Run './build/build.cmd'
         run: ./build/build.cmd --root ./build
         env:
@@ -25,4 +40,3 @@ jobs:
           SignFile: ${{ secrets.SIGN_FILE }}
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
           NugetApiUrl: ${{ secrets.NUGET_API_URL }}
-          NugetApiKey: ${{ secrets.NUGET_API_KEY }}

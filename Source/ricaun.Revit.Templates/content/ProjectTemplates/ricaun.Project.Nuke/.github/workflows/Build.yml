@@ -17,7 +17,18 @@ jobs:
     name: Build
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Cache packages
+        uses: actions/cache@v6
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', 'Directory.Build.props', 'Directory.Packages.props') }}
+          restore-keys: ${{ runner.os }}-nuget-
+          
       - name: Run './ProjectTemplates/build.cmd'
         run: ./ProjectTemplates/build.cmd --root ./ProjectTemplates
         env:
