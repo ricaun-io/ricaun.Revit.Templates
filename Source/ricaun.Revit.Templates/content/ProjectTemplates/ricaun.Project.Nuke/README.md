@@ -1,7 +1,7 @@
 ## Nuke Solution Configuration
 
 [![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](../..)
-[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
+[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://github.com/ricaun-io/ricaun.Nuke/)
 [![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
 
 Configure the file `parameters.json` in the folder `.nuke`
