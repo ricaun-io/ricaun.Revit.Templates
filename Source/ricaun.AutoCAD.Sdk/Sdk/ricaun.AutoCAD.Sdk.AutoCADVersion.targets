@@ -15,14 +15,14 @@
   </PropertyGroup>
 
   <!-- Net Core -->
-  <PropertyGroup Condition="$(IsAutoCADVersionNetCore)">
+  <PropertyGroup Condition="$(IsAutoCADVersionNetCore) AND '$(OutputType)' == 'Library'">
     <EnableDynamicLoading Condition=" '$(EnableDynamicLoading)' == ''">true</EnableDynamicLoading>
     <GenerateRuntimeConfigurationFiles Condition=" '$(GenerateRuntimeConfigurationFiles)' == ''">true</GenerateRuntimeConfigurationFiles>
     <GenerateDependencyFile Condition=" '$(GenerateDependencyFile)' == ''">false</GenerateDependencyFile>
   </PropertyGroup>
 
   <!-- DebugAutoCADVersion -->
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(AutoCADVersion)' != ''">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(AutoCADVersion)' != '' AND '$(OutputType)' == 'Library'">
     <DebugAutoCADVersion Condition=" '$(DebugAutoCADVersion)' == ''">$(AutoCADVersion)</DebugAutoCADVersion>
     <AutoCADStartProgram>$(ProgramFiles)\Autodesk\AutoCAD $(DebugAutoCADVersion)\acad.exe</AutoCADStartProgram>
     <StartAction Condition=" '$(StartAction)' == '' AND Exists('$(AutoCADStartProgram)')">Program</StartAction>

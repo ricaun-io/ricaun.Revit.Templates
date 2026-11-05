@@ -15,14 +15,14 @@
   </PropertyGroup>
 
   <!-- Net Core -->
-  <PropertyGroup Condition="$(IsRevitVersionNetCore)">
+  <PropertyGroup Condition="$(IsRevitVersionNetCore) AND '$(OutputType)' == 'Library'">
     <EnableDynamicLoading Condition=" '$(EnableDynamicLoading)' == ''">true</EnableDynamicLoading>
     <GenerateRuntimeConfigurationFiles Condition=" '$(GenerateRuntimeConfigurationFiles)' == ''">true</GenerateRuntimeConfigurationFiles>
     <GenerateDependencyFile Condition=" '$(GenerateDependencyFile)' == ''">false</GenerateDependencyFile>
   </PropertyGroup>
 
   <!-- DebugRevitVersion -->
-  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(RevitVersion)' != ''">
+  <PropertyGroup Condition="$(Configuration.Contains('Debug')) AND '$(RevitVersion)' != '' AND '$(OutputType)' == 'Library'">
     <DebugRevitVersion Condition=" '$(DebugRevitVersion)' == ''">$(RevitVersion)</DebugRevitVersion>
     <RevitStartProgram>$(ProgramFiles)\Autodesk\Revit $(DebugRevitVersion)\Revit.exe</RevitStartProgram>
     <StartAction Condition=" '$(StartAction)' == '' AND Exists('$(RevitStartProgram)')">Program</StartAction>
