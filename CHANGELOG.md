@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.1] / 2026-11-05
 ### Updates
 - Update Revit references to use [Nice3point.Revit.Api](https://github.com/Nice3point/revit-api)
+- Update `Sdk` with configuration with `Library` condition.
 ### Build
 - Update `Build` ci to use `NuGet Trusted Publishing`.
 
