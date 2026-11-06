@@ -3,7 +3,7 @@
 RevitAddin and AutoCADAddin Templates and ItemTemplates for C# Applications.
 
 [![Visual Studio 2026](https://img.shields.io/badge/Visual%20Studio-2026-blue)](https://github.com/ricaun-io/ricaun.Revit.Templates)
-[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
+[![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://github.com/ricaun-io/ricaun.Nuke/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/ricaun.Revit.Templates/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/ricaun.Revit.Templates/actions)
 

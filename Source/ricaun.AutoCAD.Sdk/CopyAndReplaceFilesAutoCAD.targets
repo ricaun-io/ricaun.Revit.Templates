@@ -34,7 +34,7 @@
       <FilesToCopyReadme Update="@(FilesToCopyReadme)">
         <ProjectFileContent>$([System.IO.File]::ReadAllText('%(FullPath)'))</ProjectFileContent>
         <DestinationFile>$(CopyAndReplaceFilesDir)\$([System.String]::Copy('%(Filename)').Replace('Revit', 'AutoCAD'))%(Extension)</DestinationFile>
-        <FileContent>$([System.IO.File]::ReadAllText('%(FullPath)').Replace('Revit_All_Main_Versions_API_x64','Chuongmep.Acad.Api.acmgd').Replace('Revit', 'AutoCAD').Replace('REVIT', 'AUTOCAD'))</FileContent>
+        <FileContent>$([System.IO.File]::ReadAllText('%(FullPath)').Replace('Nice3point.Revit.Api.RevitAPI','Chuongmep.Acad.Api.acmgd').Replace('Revit', 'AutoCAD').Replace('REVIT', 'AUTOCAD'))</FileContent>
       </FilesToCopyReadme>
     </ItemGroup>
 

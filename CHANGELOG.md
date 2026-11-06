@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] / 2026-11-05
+### Updates
+- Update Revit references to use [Nice3point.Revit.Api](https://github.com/Nice3point/revit-api)
+- Update `Sdk` with configuration with `Library` condition.
+### Build
+- Update `Build` ci to use `NuGet Trusted Publishing`.
+
 ## [1.0.0] / 2026-08-15 - 2026-08-25
 ### Features
 - Support `ricaun.Revit.Sdk` with `TargetFramework` and `Configurations` as Revit version. (Fix: #30)
@@ -185,6 +192,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Solution `ricaun-revit-addin-23-17-sln`
 
 [vNext]: ../../compare/1.0.0...HEAD
+[1.0.1]: ../../compare/1.0.0...1.0.1
 [1.0.0]: ../../compare/0.11.1...1.0.0
 [0.11.1]: ../../compare/0.11.0...0.11.1
 [0.11.0]: ../../compare/0.10.3...0.11.0

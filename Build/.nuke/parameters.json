@@ -1,4 +1,4 @@
 {
   "$schema": "./build.schema.json",
-  "Solution": "../ricaun.Revit.Templates.sln"
+  "Solution": "../ricaun.Revit.Templates.slnx"
 }
